@@ -1,6 +1,6 @@
 import React from 'react';
 import Dashboard from './components/Dashboard';
-// import Todo from './components/Todo';
+import Todo from './components/Todo';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './css/style.css';
 
