@@ -1,15 +1,13 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   output: {
-    path: path.join(__dirname, "dist"),
-    filename: "index.js"
-  },
-  devServer: {
-    port: 8080,
-    historyApiFallback: true
+    // path: path.join(__dirname, "dist"),
+    // path: "/dist",
+    filename: "index.js",
+    publicPath: "/"
   },
   module: {
     rules: [
@@ -29,15 +27,13 @@ module.exports = {
         exclude: /node_modules/,
         use: ["style-loader", "css-loader", "sass-loader"]
       }
-      // { 
-      //   test: /\.(png|jpe?g|gif)$/,
-      //   use: ["file-loader"]
-      // }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html"
-    })
+      filename: 'index.html',
+      inject: true,
+      template: "./public/index.html",
+    }),
   ]
 };
