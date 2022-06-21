@@ -3,16 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  },
   "scripts": {
-    "start": "webpack serve --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js",
     "flow": "flow",
     "lint": "npx eslint src/components --ext .js,.jsx",
+    "prepare": "husky install",
+    "start": "webpack serve --config config/webpack.dev.js",
     "test": "jest",
     "watch:sass": "node-sass src/scss/index.scss src/css/style.css -w"
   },
