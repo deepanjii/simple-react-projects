@@ -1,7 +1,9 @@
+/* @flow */
 import Link from '@mui/material/Link';
 import React from 'react';
+import type { Node } from 'react';
 
-const Dashboard = () => (
+const Dashboard = (): Node => (
   <div>
     <h3>Dashboard</h3>
     <div>

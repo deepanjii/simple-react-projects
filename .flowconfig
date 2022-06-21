@@ -1,0 +1,14 @@
+[ignore]
+.*/build/.*
+.*/node_modules/.*/\(lib\|test\).*\.json$	
+
+[include]
+src/components
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
