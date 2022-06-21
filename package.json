@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint npm run flow"
+    }
+  },
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js",
@@ -46,6 +51,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "flow-bin": "^0.180.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.1",
     "jest": "^28.1.1",
     "jest-environment-jsdom": "^28.1.1",
     "node-sass": "^7.0.1",
