@@ -1,11 +1,68 @@
 .todo {
+  font-family: 'Josefin Sans';
   width: 100vw;
   height: 100vh;
   background-image: url("../assets/images/bg-desktop-light.jpg");
   background-size: contain;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: $font-size-18;
+  background-color: $color-white-2;
 
   .todo-container {
-    
+    width: 40vw;
+    height: 80vh;
+
+    .todo-header {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 50px;
+
+      & .todo-header__text {
+        font-size: $font-size-36;
+        text-transform: uppercase;
+        font-weight: 900;
+        color: $color-white-2;
+        letter-spacing: 10px;
+      }
+
+      & .theme-switch-button {
+        background-color: transparent;
+        outline: none;
+        border: none;
+
+        & > i {
+          font-size: $font-size-36;
+          color: $color-white-2;
+        }
+      }
+    }
+
+    .todo__input {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      border-radius: 5px;
+      background-color: $color-white-1;
+      margin-bottom: 25px;
+      padding: 16px 24px;
+
+      .todo-checkbox {
+        width: 50px;
+      }
+
+      &-element {
+        height: 100%;
+        flex: 1;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: $color-gray-1;
+        font-size: inherit;
+      }
+    }
   }
 }

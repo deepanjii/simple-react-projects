@@ -1,3 +1,9 @@
 @import "base/base";
+@import "base/colors";
+@import "base/variables";
+
+@import "typography/fonts";
 
 @import "components/todo";
+@import "components/todo-checkbox";
+@import "components/todo-list";
