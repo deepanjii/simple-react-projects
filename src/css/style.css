@@ -62,6 +62,31 @@ html {
         color: #707A89;
         font-size: inherit; }
 
+.todo-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #B1BECB;
+  font-family: inherit; }
+  .todo-action-row .todo-toggle {
+    display: flex; }
+    .todo-action-row .todo-toggle button:not(:last-child) {
+      margin-right: 8px; }
+  .todo-action-row button {
+    color: #B1BECB;
+    font-size: 14px;
+    font-family: inherit;
+    padding: 4px;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    cursor: pointer; }
+    .todo-action-row button.active {
+      color: #3a7bfd; }
+    .todo-action-row button:hover {
+      color: #707A89; }
+
 .custom-checkbox {
   display: block;
   position: relative;
@@ -123,14 +148,7 @@ html {
   font-family: inherit; }
   .todo-list .todo-list__item {
     display: flex;
-    align-items: center;
-    background-color: #fff;
-    padding: 16px 24px; }
-    .todo-list .todo-list__item:first-child {
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px; }
-    .todo-list .todo-list__item:not(:last-child) {
-      border-bottom: 1px solid #D7DDE4; }
+    align-items: center; }
     .todo-list .todo-list__item .todo-list__item__name {
       color: #707A89;
       flex: 1; }
@@ -142,3 +160,16 @@ html {
       .todo-list .todo-list__item .todo-list__item__delete:hover {
         cursor: pointer;
         color: #707A89; }
+
+.todo-list__row {
+  background-color: #fff;
+  padding: 16px 24px; }
+  .todo-list__row:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; }
+  .todo-list__row:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 12px 24px; }
+  .todo-list__row:not(:last-child) {
+    border-bottom: 1px solid #D7DDE4; }

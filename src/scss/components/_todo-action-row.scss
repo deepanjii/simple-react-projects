@@ -1,0 +1,38 @@
+.todo-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: $color-gray-2;
+  font-family: inherit;
+
+  .todo-left-count {
+
+  }
+  .todo-toggle {
+    display: flex;
+
+    button:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  button {
+    color: $color-gray-2;
+    font-size: 14px;
+    font-family: inherit;
+    padding: 4px;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+
+    &.active {
+      color: $bright-blue;
+    }
+
+    &:hover {
+      color: $color-gray-1;
+    }
+  }
+}
