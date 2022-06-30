@@ -1,16 +1,26 @@
 import React, { useState } from 'react';
 import CustomCheckbox from './CustomCheckbox';
 
-const TodoInput = () => {
-  const [value, setValue] = useState('');
+type Props = {
+  onTodoAdd: Function
+};
+
+const TodoInput = ({ onTodoAdd }: Props) => {
+  const [todoText, setTodoText] = useState('');
   const [checked, setChecked] = useState(false);
 
-  const handleChange = (event: Object) => {
-    setValue(event.target.value);
+  const handleInputChange = (event: Object) => {
+    setTodoText(event.target.value);
   };
 
   const handleCheckboxChange = () => {
     setChecked(!checked);
+  };
+
+  const handleKeyDown = event => {
+    if (event.key === 'Enter' && todoText) {
+      onTodoAdd({ todoText, checked });
+    }
   };
 
   return (
@@ -19,10 +29,11 @@ const TodoInput = () => {
       <input
         aria-label="todo-input-element"
         className="todo__input-element"
-        onChange={handleChange}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         placeholder="Enter a todo task here..."
         type="text"
-        value={value}
+        value={todoText}
       />
     </div>
   );
