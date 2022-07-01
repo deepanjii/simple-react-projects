@@ -5,7 +5,7 @@ import type { Node } from 'react';
 
 const Dashboard = (): Node => (
   <div>
-    <h3>Dashboard</h3>
+    <h3>Dashboard updated</h3>
     <div>
       <Link href="todo">Todo</Link>
     </div>
