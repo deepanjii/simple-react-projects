@@ -20,6 +20,7 @@ const TodoInput = ({ onTodoAdd }: Props) => {
   const handleKeyDown = event => {
     if (event.key === 'Enter' && todoText) {
       onTodoAdd({ todoText, checked });
+      setTodoText('');
     }
   };
 

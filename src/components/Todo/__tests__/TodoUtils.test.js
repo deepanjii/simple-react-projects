@@ -29,4 +29,19 @@ describe('TodoUtils', () => {
     const updatedTodos = TodoUtils.updateTodoStatus({ todos, todoId: 1 });
     expect(updatedTodos[0]).toEqual({ ...updatedTodos[0], isCompleted: false });
   });
+
+  test('should delete todo', () => {
+    const updatedTodos = TodoUtils.deleteTodo({ todos, todoId: 1 });
+    expect(updatedTodos[0]).not.toEqual({
+      id: 1,
+      name: 'Finish project 1',
+      isCompleted: true
+    });
+    expect(updatedTodos.length).toEqual(1);
+  });
+
+  test('should return incomplete todos count', () => {
+    const incompleteTodosCount = TodoUtils.getIncompleteTodosCount({ todos });
+    expect(incompleteTodosCount).toEqual(1);
+  });
 });

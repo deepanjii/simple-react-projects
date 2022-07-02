@@ -12,7 +12,7 @@ describe('TodoActionRow', () => {
         {...extraProps}
       />
     );
-    const todoAll = utils.getByRole('todo-all');
+    const todoAll = utils.getByRole('button', { name: /all/i });
     return {
       todoAll,
       ...utils
@@ -30,9 +30,9 @@ describe('TodoActionRow', () => {
 
   test('should display All, Active, Completed filter buttons', () => {
     const { getByRole } = setup();
-    expect(getByRole('todo-all')).toHaveTextContent('All');
-    expect(getByRole('todo-active')).toHaveTextContent('Active');
-    expect(getByRole('todo-completed')).toHaveTextContent('Completed');
+    expect(getByRole('button', { name: /all/i })).toHaveTextContent('All');
+    expect(getByRole('button', { name: /active/i })).toHaveTextContent('Active');
+    expect(getByRole('button', { name: 'Completed' })).toHaveTextContent('Completed');
   });
 
   test('should invoke callbacks on clicking filter buttons', () => {
@@ -40,16 +40,16 @@ describe('TodoActionRow', () => {
     const { todoAll, getByRole } = setup({ onFilterSelected: filterCallback });
     fireEvent.click(todoAll);
     expect(filterCallback).toHaveBeenCalled();
-    fireEvent.click(getByRole('todo-active'));
+    fireEvent.click(getByRole('button', { name: /active/i }));
     expect(filterCallback).toHaveBeenCalledWith('active');
-    fireEvent.click(getByRole('todo-completed'));
+    fireEvent.click(getByRole('button', { name: 'Completed' }));
     expect(filterCallback).toHaveBeenCalledWith('completed');
   });
 
   test('should invoke callback on clicking clear completed buttom', () => {
     const clearCompletedCallback = jest.fn().mockImplementation(() => {});
     const { getByRole } = setup({ onClearCompleted: clearCompletedCallback });
-    fireEvent.click(getByRole('clear-completed'));
+    fireEvent.click(getByRole('button', { name: /clear completed/i }));
     expect(clearCompletedCallback).toHaveBeenCalled();
   });
 });

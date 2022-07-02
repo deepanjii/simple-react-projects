@@ -31,4 +31,20 @@ describe('Todo', () => {
     fireEvent.click(checkbox);
     expect(container.getElementsByClassName('todo-list__item__name--striked').length).toEqual(2);
   });
+
+  test('should delete the todo when delete button is clicked', () => {
+    const { container } =  setup();
+    const deleteTodoBtn = container.getElementsByClassName('todo-list__item__delete')[0];
+    expect(container.getElementsByClassName('todo-list__item').length).toEqual(2);
+    fireEvent.click(deleteTodoBtn);
+    expect(container.getElementsByClassName('todo-list__item').length).toEqual(1);
+  });
+
+  test('should clear all completed todo when clear complete is clicked', () => {
+    const { container, getByRole } =  setup();
+    expect(container.getElementsByClassName('todo-list__item').length).toEqual(2);
+    const clearCompleteBtn = getByRole('button', { name: /clear completed/i });
+    fireEvent.click(clearCompleteBtn);
+    expect(container.getElementsByClassName('todo-list__item').length).toEqual(1);
+  });
 });

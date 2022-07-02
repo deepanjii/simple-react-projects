@@ -45,4 +45,12 @@ describe('TodoInput', () => {
     expect(onTodoAddCallback).toHaveBeenCalled();
     expect(onTodoAddCallback).toHaveBeenCalledWith({ todoText: 'Finish mini project 1', checked: false });
   });
+
+  test('should clear the input when enter is pressed after entering some todo text', () => {
+    const onTodoAddCallback = jest.fn().mockImplementation(() => {});
+    const { input: todoInput } = setup({ onTodoAdd: onTodoAddCallback });
+    fireEvent.change(todoInput, { target: { value: 'Finish mini project 1' } });
+    fireEvent.keyDown(todoInput, { key: 'Enter', code: 'Enter', charCode: 13 });
+    expect(todoInput.value).toEqual('');
+  });
 });

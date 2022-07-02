@@ -32,12 +32,27 @@ const Todo = (): Node => {
     setTodo(updatedTodos);
   };
 
+  const onTodoDelete = todoId => {
+    const updatedTodos = TodoUtils.deleteTodo({ todos, todoId });
+    setTodo(updatedTodos);
+  };
+
+  const onClearCompletedTodo = () => {
+    const updatedTodos = TodoUtils.clearCompletedTodos({ todos });
+    setTodo(updatedTodos);
+  };
+
   return (
     <div className="todo" data-testid="todo-bg-div">
       <div className="todo-container">
         <TodoHeader />
         <TodoInput onTodoAdd={onTodoAdd} />
-        <TodoList onStatusChange={onTodoStatusChange} todoList={todos} />
+        <TodoList
+          onClearCompleted={onClearCompletedTodo}
+          onDelete={onTodoDelete}
+          onStatusChange={onTodoStatusChange}
+          todoList={todos}
+        />
       </div>
       <div><Link href="/">Back to dashboard</Link></div>
     </div>

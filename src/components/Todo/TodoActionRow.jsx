@@ -10,11 +10,11 @@ const TodoActionRow = ({ leftTodoItemsCount, onClearCompleted, onFilterSelected 
   <div className="todo-action-row">
     <span className='todo-left-count' role='todo-items-left'>{`${leftTodoItemsCount} items left`}</span>
     <span className='todo-toggle'>
-      <button className='active' onClick={() => onFilterSelected('all')} role="todo-all">All</button>
-      <button onClick={() => onFilterSelected('active')} role="todo-active">Active</button>
-      <button onClick={() => onFilterSelected('completed')} role="todo-completed">Completed</button>
+      <button className='active' onClick={() => onFilterSelected('all')}>All</button>
+      <button onClick={() => onFilterSelected('active')}>Active</button>
+      <button onClick={() => onFilterSelected('completed')}>Completed</button>
     </span>
-    <button className='todo-clear-completed' onClick={onClearCompleted} role="clear-completed">Clear Completed</button>
+    <button className='todo-clear-completed' onClick={onClearCompleted}>Clear Completed</button>
   </div>
 );
 
