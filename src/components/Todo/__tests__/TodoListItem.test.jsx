@@ -18,9 +18,9 @@ describe('TodoListItem', () => {
         {...extraProps}
       />
     );
-    const todoItemCheckbox = utils.getByRole('todo-item-checkbox');
-    const todoItemName = utils.getByRole('todo-item-name');
-    const todoItemDeleteBtn = utils.getByRole('todo-item-delete');
+    const todoItemCheckbox = utils.getByRole('checkbox');
+    const todoItemName = utils.getByText(/finish project 1/i);
+    const todoItemDeleteBtn = utils.getByRole('button');
 
     return {
       todoItemCheckbox,

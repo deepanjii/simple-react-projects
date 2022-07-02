@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useId } from 'react';
 import type { Node } from 'react';
 
 type Props = {
   checked: boolean,
-  onChange: Function,
-  role: string
+  onChange: Function
 };
 
-const CustomCheckbox = ({ checked, onChange, role }: Props): Node => (
-  <label className="custom-checkbox">
-    <input
-      checked={checked}
-      className="custom-checkbox__input"
-      onChange={onChange}
-      type="checkbox"
-      role={role}
-    />
-    <span className="checkmark" />
-  </label>
-);
+const CustomCheckbox = ({ checked, onChange }: Props): Node => {
+  const inputId = useId();
+  return (
+    <label className="custom-checkbox" htmlFor={inputId}>
+      <input
+        checked={checked}
+        className="custom-checkbox__input"
+        id={inputId}
+        onChange={onChange}
+        type="checkbox"
+      />
+      <span className="checkmark" />
+    </label>
+  );
+};
 
 export default CustomCheckbox;

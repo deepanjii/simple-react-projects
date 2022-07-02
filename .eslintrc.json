@@ -23,18 +23,10 @@
         "flowtype"
     ],
     "rules": {
-      "arrow-body-style": ["error", "as-needed"],
       "arrow-parens": ["error", "as-needed"],
       "comma-dangle": ["error", "never"],
       "flowtype/no-types-missing-file-annotation": 0,
-      "jsx-a11y/aria-role": 0,
-      "jsx-a11y/click-events-have-key-events": 0,
-      "jsx-a11y/control-has-associated-label": 0,
-      "jsx-a11y/label-has-associated-control": 0,
       "jsx-quotes": 0,
-      "no-restricted-exports": 0,
-      "no-multi-spaces": 0,
-      "react/button-has-type": 0,
       "react/function-component-definition": [
         2,
         {

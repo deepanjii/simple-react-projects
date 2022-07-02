@@ -17,11 +17,11 @@ const todoList = [
 
 describe('TodoList', () => {
   const setup = () => {
-    const utils = render(<TodoList todoList={todoList} />);
-    const todos = utils.getAllByRole('todo-item');
+    const { container, ...rest } = render(<TodoList todoList={todoList} />);
+    const todos = container.getElementsByClassName('todo-list__item');
     return {
       todos,
-      ...utils
+      ...rest
     };
   };
 

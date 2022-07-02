@@ -24,8 +24,8 @@ describe('TodoActionRow', () => {
   });
 
   test('should display no of items left', () => {
-    const { getByRole } = setup();
-    expect(getByRole('todo-items-left')).toHaveTextContent('1 items left');
+    const { getByText } = setup();
+    expect(getByText(/1 items left/i)).toBeTruthy();
   });
 
   test('should display All, Active, Completed filter buttons', () => {
