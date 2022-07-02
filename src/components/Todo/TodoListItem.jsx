@@ -3,16 +3,17 @@ import CustomCheckbox from './CustomCheckbox';
 import type { Todo } from './types';
 
 type Props = {
-  onComplete: Function,
   onDelete: Function,
+  onStatusChange: Function,
   todo: Todo
 }
 
-const TodoListItem = ({ onComplete, onDelete, todo }: Props) => (
+const TodoListItem = ({ onDelete, onStatusChange, todo }: Props) => (
   <div key={todo.id} role="todo-item" className="todo-list__item">
     <CustomCheckbox
       checked={todo.isCompleted}
-      onChange={() => onComplete(todo.id)}
+      name={todo.name}
+      onChange={() => onStatusChange(todo.id)}
       role="todo-item-checkbox"
     />
     <div

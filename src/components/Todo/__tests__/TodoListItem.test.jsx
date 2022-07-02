@@ -13,7 +13,7 @@ describe('TodoListItem', () => {
     const utils = render(
       <TodoListItem
         todo={todo}
-        onComplete={() => {}}
+        onStatusChange={() => {}}
         onDelete={() => {}}
         {...extraProps}
       />
@@ -40,11 +40,11 @@ describe('TodoListItem', () => {
   });
 
   test('should callback when todo completed checkbox is clicked', () => {
-    const onCompleteCallback = jest.fn().mockImplementation(() => {});
-    const { todoItemCheckbox } = setup({ onComplete: onCompleteCallback });
+    const onStatusChangeCallback = jest.fn().mockImplementation(() => {});
+    const { todoItemCheckbox } = setup({ onStatusChange: onStatusChangeCallback });
     fireEvent.click(todoItemCheckbox);
-    expect(onCompleteCallback).toHaveBeenCalledWith(1);
-    expect(onCompleteCallback).toHaveBeenCalledTimes(1);
+    expect(onStatusChangeCallback).toHaveBeenCalledWith(1);
+    expect(onStatusChangeCallback).toHaveBeenCalledTimes(1);
   });
 
   test('should callback when todo delete button is clicked', () => {

@@ -4,15 +4,11 @@ import React, { useState } from 'react';
 import TodoHeader from './TodoHeader';
 import TodoInput from './TodoInput';
 import TodoList from './TodoList';
-
-type TodoType = {
-  id: number,
-  name: string,
-  isCompleted: boolean
-};
+import type { Todo as TodoType } from './types';
+import TodoUtils from './TodoUtils';
 
 const Todo = (): Node => {
-  const [todos, setTodo]: [TodoType, Function] = useState([
+  const [todos, setTodo]: [Array<TodoType>, Function] = useState([
     {
       id: 1,
       name: 'Finish project 1',
@@ -27,13 +23,13 @@ const Todo = (): Node => {
 
   const onTodoAdd = todo => {
     const { todoText, checked } = todo;
-    const newTodo = {
-      id: todos.length + 1,
-      name: todoText,
-      isCompleted: checked
-    };
+    const updatedTodos = TodoUtils.addNewTodo({ todos, todoText, todoStatus: checked });
+    setTodo(updatedTodos);
+  };
 
-    setTodo([...todos, newTodo]);
+  const onTodoStatusChange = todoId => {
+    const updatedTodos = TodoUtils.updateTodoStatus({ todos, todoId });
+    setTodo(updatedTodos);
   };
 
   return (
@@ -41,7 +37,7 @@ const Todo = (): Node => {
       <div className="todo-container">
         <TodoHeader />
         <TodoInput onTodoAdd={onTodoAdd} />
-        <TodoList todoList={todos} />
+        <TodoList onStatusChange={onTodoStatusChange} todoList={todos} />
       </div>
       <div><Link href="/">Back to dashboard</Link></div>
     </div>

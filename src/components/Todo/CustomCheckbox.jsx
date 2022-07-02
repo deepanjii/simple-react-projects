@@ -11,6 +11,7 @@ const CustomCheckbox = ({ checked, onChange, role }: Props): Node => (
   <label className="custom-checkbox">
     <input
       checked={checked}
+      className="custom-checkbox__input"
       onChange={onChange}
       type="checkbox"
       role={role}

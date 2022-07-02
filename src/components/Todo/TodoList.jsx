@@ -5,15 +5,16 @@ import TodoListRow from './TodoListRow';
 import type { Todo } from './types';
 
 type Props = {
+  onStatusChange: Function,
   todoList: Array<Todo>
 };
 
-const TodoList = ({ todoList }: Props) => (
+const TodoList = ({ onStatusChange, todoList }: Props) => (
   <div className="todo-list">
     {
       todoList.map(todo => (
         <TodoListRow key={todo.id}>
-          <TodoListItem key={todo.id} todo={todo} />
+          <TodoListItem key={todo.id} onStatusChange={onStatusChange} todo={todo} />
         </TodoListRow>
       ))
     }
