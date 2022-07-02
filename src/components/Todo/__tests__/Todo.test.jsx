@@ -15,10 +15,20 @@ describe('Todo', () => {
   });
 
   test('should render the newly added todo', () => {
-    const { getByLabelText, getByText } =  setup();
+    const { container, getByLabelText, getByText } =  setup();
+    expect(container.getElementsByClassName('todo-list__item').length).toEqual(2);
     const todoInput = getByLabelText('todo-input-element', { selector: 'input' });
     fireEvent.change(todoInput, { target: { value: 'Finish mini project 1' } });
     fireEvent.keyDown(todoInput, { key: 'Enter', code: 'Enter', charCode: 13 });
     expect(getByText(/Finish mini project 1/i)).toBeTruthy();
+    expect(container.getElementsByClassName('todo-list__item').length).toEqual(3);
+  });
+
+  test('should strike through the completed todos', () => {
+    const { container } =  setup();
+    const checkbox = container.getElementsByClassName('custom-checkbox__input')[2];
+    expect(container.getElementsByClassName('todo-list__item__name--striked').length).toEqual(1);
+    fireEvent.click(checkbox);
+    expect(container.getElementsByClassName('todo-list__item__name--striked').length).toEqual(2);
   });
 });
