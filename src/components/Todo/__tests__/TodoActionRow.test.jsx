@@ -1,16 +1,25 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import TodoActionRow from '../TodoActionRow';
+import TodoContext from '../TodoContext';
+import TodoUtils from '../TodoUtils';
 
 describe('TodoActionRow', () => {
   const setup = extraProps => {
+    const todoContext = {
+      activeFilter: 'All',
+      filters: TodoUtils.filters
+    };
+
     const utils = render(
-      <TodoActionRow
-        leftTodoItemsCount={1}
-        onClearCompleted={() => {}}
-        onFilterSelected={() => {}}
-        {...extraProps}
-      />
+      <TodoContext.Provider value={todoContext}>
+        <TodoActionRow
+          leftTodoItemsCount={1}
+          onClearCompleted={() => {}}
+          onFilterChange={() => {}}
+          {...extraProps}
+        />
+      </TodoContext.Provider>
     );
     const todoAll = utils.getByRole('button', { name: /all/i });
     return {
@@ -37,13 +46,13 @@ describe('TodoActionRow', () => {
 
   test('should invoke callbacks on clicking filter buttons', () => {
     const filterCallback = jest.fn().mockImplementation(() => {});
-    const { todoAll, getByRole } = setup({ onFilterSelected: filterCallback });
+    const { todoAll, getByRole } = setup({ onFilterChange: filterCallback });
     fireEvent.click(todoAll);
     expect(filterCallback).toHaveBeenCalled();
     fireEvent.click(getByRole('button', { name: /active/i }));
-    expect(filterCallback).toHaveBeenCalledWith('active');
+    expect(filterCallback).toHaveBeenCalledWith('Active');
     fireEvent.click(getByRole('button', { name: 'Completed' }));
-    expect(filterCallback).toHaveBeenCalledWith('completed');
+    expect(filterCallback).toHaveBeenCalledWith('Completed');
   });
 
   test('should invoke callback on clicking clear completed buttom', () => {
