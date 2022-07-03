@@ -47,4 +47,13 @@ describe('Todo', () => {
     fireEvent.click(clearCompleteBtn);
     expect(container.getElementsByClassName('todo-list__item').length).toEqual(1);
   });
+
+  // test('should switch between different filters', () => {
+  //   const { getByRole } = setup();
+  //   const allBtn = getByRole('button', { name: /all/i });
+  //   expect(allBtn).toHaveClass('active');
+  //   const activeBtn = getByRole('button', { name: /active/i });
+  //   fireEvent.click(activeBtn);
+  //   expect(activeBtn).toHaveClass('active');
+  // });
 });

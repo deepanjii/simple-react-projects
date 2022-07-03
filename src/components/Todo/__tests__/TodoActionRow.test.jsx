@@ -1,15 +1,16 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import TodoActionRow from '../TodoActionRow';
 import TodoContext from '../TodoContext';
 import TodoUtils from '../TodoUtils';
 
+/* eslint-disable react/jsx-no-constructed-context-values */
 describe('TodoActionRow', () => {
   const setup = extraProps => {
-    const todoContext = useMemo(() => ({
+    const todoContext = {
       activeFilter: 'All',
       filters: TodoUtils.filters
-    }));
+    };
 
     const utils = render(
       <TodoContext.Provider value={todoContext}>
