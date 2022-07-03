@@ -1,21 +1,36 @@
-import React from 'react';
+import _ from 'lodash';
+import React, { useContext } from 'react';
+import TodoContext from './TodoContext';
 
 type Props = {
   leftTodoItemsCount: number,
   onClearCompleted: Function,
-  onFilterSelected: Function
+  onFilterChange: Function
 };
 
-const TodoActionRow = ({ leftTodoItemsCount, onClearCompleted, onFilterSelected }: Props) => (
-  <div className="todo-action-row">
-    <span className='todo-left-count'>{`${leftTodoItemsCount} items left`}</span>
-    <span className='todo-toggle'>
-      <button className='active' onClick={() => onFilterSelected('all')} type='button'>All</button>
-      <button onClick={() => onFilterSelected('active')} type='button'>Active</button>
-      <button onClick={() => onFilterSelected('completed')} type='button'>Completed</button>
-    </span>
-    <button className='todo-clear-completed' onClick={onClearCompleted} type='button'>Clear Completed</button>
-  </div>
-);
+const TodoActionRow = ({ leftTodoItemsCount, onClearCompleted, onFilterChange }: Props) => {
+  const { activeFilter, filters } = useContext(TodoContext);
+
+  return (
+    <div className="todo-action-row">
+      <span className='todo-left-count'>{`${leftTodoItemsCount} items left`}</span>
+      <span className='todo-toggle'>
+        {
+          _.map(filters, filter => (
+            <button
+              className={`${activeFilter === filter ? 'active' : ''}`}
+              key={filter}
+              onClick={() => onFilterChange(filter)}
+              type='button'
+            >
+              {filter}
+            </button>
+          ))
+        }
+      </span>
+      <button className='todo-clear-completed' onClick={onClearCompleted} type='button'>Clear Completed</button>
+    </div>
+  );
+};
 
 export default TodoActionRow;

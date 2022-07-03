@@ -27,7 +27,8 @@
     font-weight: bold;
     cursor: pointer;
 
-    &.active {
+    &.active,
+    &.active:hover {
       color: $bright-blue;
     }
 

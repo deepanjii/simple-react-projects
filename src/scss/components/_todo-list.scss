@@ -16,6 +16,8 @@
 
     .todo-list__item__delete {
       color: $color-gray-2;
+      background-color: transparent;
+      border: none;
 
       &:hover {
         cursor: pointer;

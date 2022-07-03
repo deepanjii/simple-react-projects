@@ -1,6 +1,7 @@
 import Link from '@mui/material/Link';
 import type { Node } from 'react';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import TodoContext from './TodoContext';
 import TodoHeader from './TodoHeader';
 import TodoInput from './TodoInput';
 import TodoList from './TodoList';
@@ -20,6 +21,11 @@ const Todo = (): Node => {
       isCompleted: false
     }
   ]);
+  const [activeFilter, setActiveFilter] = useState(TodoUtils.filters.ALL);
+  const todoContextValue = useMemo(() => ({
+    activeFilter,
+    filters: TodoUtils.filters
+  }));
 
   const onTodoAdd = todo => {
     const { todoText, checked } = todo;
@@ -42,17 +48,24 @@ const Todo = (): Node => {
     setTodo(updatedTodos);
   };
 
+  const onFilterChange = filter => {
+    setActiveFilter(filter);
+  };
+
   return (
     <div className="todo" data-testid="todo-bg-div">
       <div className="todo-container">
-        <TodoHeader />
-        <TodoInput onTodoAdd={onTodoAdd} />
-        <TodoList
-          onClearCompleted={onClearCompletedTodo}
-          onDelete={onTodoDelete}
-          onStatusChange={onTodoStatusChange}
-          todoList={todos}
-        />
+        <TodoContext.Provider value={todoContextValue}>
+          <TodoHeader />
+          <TodoInput onTodoAdd={onTodoAdd} />
+          <TodoList
+            onClearCompleted={onClearCompletedTodo}
+            onDelete={onTodoDelete}
+            onFilterChange={onFilterChange}
+            onStatusChange={onTodoStatusChange}
+            todoList={todos}
+          />
+        </TodoContext.Provider>
       </div>
       <div><Link href="/">Back to dashboard</Link></div>
     </div>

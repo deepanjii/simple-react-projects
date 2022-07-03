@@ -8,6 +8,7 @@ import type { Todo } from './types';
 type Props = {
   onClearCompleted: Function,
   onDelete: Function,
+  onFilterChange: Function,
   onStatusChange: Function,
   todoList: Array<Todo>
 };
@@ -15,6 +16,7 @@ type Props = {
 const TodoList = ({
   onClearCompleted,
   onDelete,
+  onFilterChange,
   onStatusChange,
   todoList
 }: Props) => (
@@ -35,7 +37,7 @@ const TodoList = ({
       <TodoActionRow
         leftTodoItemsCount={TodoUtils.getIncompleteTodosCount({ todos: todoList })}
         onClearCompleted={onClearCompleted}
-        onFilterSelected={null}
+        onFilterChange={onFilterChange}
       />
     </TodoListRow>
   </div>

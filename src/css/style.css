@@ -82,7 +82,7 @@ html {
     border: none;
     font-weight: bold;
     cursor: pointer; }
-    .todo-action-row button.active {
+    .todo-action-row button.active, .todo-action-row button.active:hover {
       color: #3a7bfd; }
     .todo-action-row button:hover {
       color: #707A89; }
@@ -156,7 +156,9 @@ html {
       color: #B1BECB;
       text-decoration: line-through; }
     .todo-list .todo-list__item .todo-list__item__delete {
-      color: #B1BECB; }
+      color: #B1BECB;
+      background-color: transparent;
+      border: none; }
       .todo-list .todo-list__item .todo-list__item__delete:hover {
         cursor: pointer;
         color: #707A89; }
