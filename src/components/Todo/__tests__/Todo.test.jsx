@@ -48,12 +48,26 @@ describe('Todo', () => {
     expect(container.getElementsByClassName('todo-list__item').length).toEqual(1);
   });
 
-  // test('should switch between different filters', () => {
-  //   const { getByRole } = setup();
-  //   const allBtn = getByRole('button', { name: /all/i });
-  //   expect(allBtn).toHaveClass('active');
-  //   const activeBtn = getByRole('button', { name: /active/i });
-  //   fireEvent.click(activeBtn);
-  //   expect(activeBtn).toHaveClass('active');
-  // });
+  test('should switch between different filters', () => {
+    const { getByRole } = setup();
+    const allBtn = getByRole('button', { name: /all/i });
+    expect(allBtn).toHaveClass('active');
+    const activeBtn = getByRole('button', { name: /active/i });
+    fireEvent.click(activeBtn);
+    expect(activeBtn).toHaveClass('active');
+  });
+
+  test('should display the todos based on the filter applied', () => {
+    const { container, getByRole } = setup();
+    expect(container.getElementsByClassName('todo-list__item').length).toEqual(2);
+    expect(container.getElementsByClassName('todo-list__item__name--striked').length).toEqual(1);
+    const activeBtn = getByRole('button', { name: /active/i });
+    fireEvent.click(activeBtn);
+    expect(container.getElementsByClassName('todo-list__item').length).toEqual(1);
+    expect(container.getElementsByClassName('todo-list__item__name--striked').length).toEqual(0);
+    const completedBtn = getByRole('button', { name: 'Completed' });
+    fireEvent.click(completedBtn);
+    expect(container.getElementsByClassName('todo-list__item').length).toEqual(1);
+    expect(container.getElementsByClassName('todo-list__item__name--striked').length).toEqual(1);
+  });
 });

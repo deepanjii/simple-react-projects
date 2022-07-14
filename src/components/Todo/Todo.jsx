@@ -1,6 +1,6 @@
 import Link from '@mui/material/Link';
 import type { Node } from 'react';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import TodoContext from './TodoContext';
 import TodoHeader from './TodoHeader';
 import TodoInput from './TodoInput';
@@ -8,24 +8,43 @@ import TodoList from './TodoList';
 import type { Todo as TodoType } from './types';
 import TodoUtils from './TodoUtils';
 
+const initialTodos = [
+  {
+    id: 1,
+    name: 'Finish project 1',
+    isCompleted: true
+  },
+  {
+    id: 2,
+    name: 'Finish UTs for project 1',
+    isCompleted: false
+  }
+];
+
 const Todo = (): Node => {
-  const [todos, setTodo]: [Array<TodoType>, Function] = useState([
-    {
-      id: 1,
-      name: 'Finish project 1',
-      isCompleted: true
-    },
-    {
-      id: 2,
-      name: 'Finish UTs for project 1',
-      isCompleted: false
-    }
-  ]);
+  const [todos, setTodo]: [Array<TodoType>, Function] = useState(initialTodos);
+  const [filteredTodos, setFilteredTodos]: [Array<TodoType>, Function] = useState(todos);
   const [activeFilter, setActiveFilter] = useState(TodoUtils.filters.ALL);
   const todoContextValue = useMemo(() => ({
     activeFilter,
     filters: TodoUtils.filters
   }));
+
+  useEffect(() => {
+    let updatedFilteredTodos = [];
+    switch (activeFilter) {
+      case TodoUtils.filters.ALL:
+        updatedFilteredTodos = todos; break;
+      case TodoUtils.filters.ACTIVE:
+        updatedFilteredTodos = todos.filter(todo => todo.isCompleted === false);
+        break;
+      case TodoUtils.filters.COMPLETED:
+        updatedFilteredTodos = todos.filter(todo => todo.isCompleted === true);
+        break;
+      default: break;
+    }
+    setFilteredTodos(updatedFilteredTodos);
+  }, [activeFilter, todos]);
 
   const onTodoAdd = todo => {
     const { todoText, checked } = todo;
@@ -63,7 +82,7 @@ const Todo = (): Node => {
             onDelete={onTodoDelete}
             onFilterChange={onFilterChange}
             onStatusChange={onTodoStatusChange}
-            todoList={todos}
+            todoList={filteredTodos}
           />
         </TodoContext.Provider>
       </div>
