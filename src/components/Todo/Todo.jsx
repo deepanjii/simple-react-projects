@@ -7,6 +7,8 @@ import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 import type { Todo as TodoType } from './types';
 import TodoUtils from './TodoUtils';
+import useTheme from './useTheme';
+import useTodo from './useTodo';
 
 const initialTodos = [
   {
@@ -22,9 +24,17 @@ const initialTodos = [
 ];
 
 const Todo = (): Node => {
-  const [todos, setTodo]: [Array<TodoType>, Function] = useState(initialTodos);
+  const {
+    todos,
+    getIncompleteTodosCount,
+    onTodoAdd,
+    onTodoDelete,
+    onTodoStatusChange,
+    onClearCompletedTodo
+  } = useTodo(initialTodos);
   const [filteredTodos, setFilteredTodos]: [Array<TodoType>, Function] = useState(todos);
   const [activeFilter, setActiveFilter] = useState(TodoUtils.filters.ALL);
+  const [theme, toggleTheme] = useTheme();
   const todoContextValue = useMemo(() => ({
     activeFilter,
     filters: TodoUtils.filters
@@ -46,38 +56,18 @@ const Todo = (): Node => {
     setFilteredTodos(updatedFilteredTodos);
   }, [activeFilter, todos]);
 
-  const onTodoAdd = todo => {
-    const { todoText, checked } = todo;
-    const updatedTodos = TodoUtils.addNewTodo({ todos, todoText, todoStatus: checked });
-    setTodo(updatedTodos);
-  };
-
-  const onTodoStatusChange = todoId => {
-    const updatedTodos = TodoUtils.updateTodoStatus({ todos, todoId });
-    setTodo(updatedTodos);
-  };
-
-  const onTodoDelete = todoId => {
-    const updatedTodos = TodoUtils.deleteTodo({ todos, todoId });
-    setTodo(updatedTodos);
-  };
-
-  const onClearCompletedTodo = () => {
-    const updatedTodos = TodoUtils.clearCompletedTodos({ todos });
-    setTodo(updatedTodos);
-  };
-
   const onFilterChange = filter => {
     setActiveFilter(filter);
   };
 
   return (
-    <div className="todo" data-testid="todo-bg-div">
+    <div className={`todo todo--${theme}`} data-testid="todo-bg-div">
       <div className="todo-container">
         <TodoContext.Provider value={todoContextValue}>
-          <TodoHeader />
+          <TodoHeader onThemeChange={toggleTheme} />
           <TodoInput onTodoAdd={onTodoAdd} />
           <TodoList
+            leftTodoItemsCount={getIncompleteTodosCount()}
             onClearCompleted={onClearCompletedTodo}
             onDelete={onTodoDelete}
             onFilterChange={onFilterChange}

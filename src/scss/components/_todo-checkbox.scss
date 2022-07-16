@@ -3,6 +3,7 @@
   position: relative;
   height: 25px;
   padding-left: 35px;
+  margin-right: 12px;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
@@ -27,7 +28,7 @@
   left: 0;
   height: 25px;
   width: 25px;
-  border: 1px solid $color-white-2;
+  border: 1.5px solid $color-light-gray-2;
   border-radius: 50%
 }
 
@@ -39,7 +40,7 @@
 
 /* When the checkbox is checked, add a blue background */
 .custom-checkbox input:checked ~ .checkmark {
-  background-image: $bg-checkbox;
+  background-image: $color-checkbox;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -60,7 +61,7 @@
   top: 5px;
   width: 5px;
   height: 10px;
-  border: solid $color-white-1;
+  border: solid $color-light-gray-1;
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);

@@ -21,7 +21,7 @@ const TodoListItem = ({ onDelete, onStatusChange, todo }: Props) => (
       {todo.name}
     </div>
     <button className="todo-list__item__delete" onClick={() => onDelete(todo.id)} type='button'>
-      <i className="fa-solid fa-xmark" />
+      {/* <i className="fa-solid fa-xmark" /> */}
     </button>
   </div>
 );

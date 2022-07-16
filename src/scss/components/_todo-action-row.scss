@@ -3,12 +3,12 @@
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
-  color: $color-gray-2;
   font-family: inherit;
 
-  .todo-left-count {
-
+  .todo-left-count, .todo-clear-completed {
+    color: $color-light-gray-4;
   }
+
   .todo-toggle {
     display: flex;
 
@@ -18,22 +18,26 @@
   }
 
   button {
-    color: $color-gray-2;
+    color: $color-light-gray-4;
     font-size: 14px;
     font-family: inherit;
     padding: 4px;
     background-color: transparent;
     border: none;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
 
     &.active,
     &.active:hover {
-      color: $bright-blue;
+      color: $color-bright-blue;
     }
 
     &:hover {
-      color: $color-gray-1;
+      color: $color-light-gray-5;
     }
+  }
+
+  .todo-clear-completed {
+    font-weight: 400;
   }
 }

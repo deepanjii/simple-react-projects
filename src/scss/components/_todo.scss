@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   font-size: $font-size-18;
-  background-color: $color-white-2;
+  background-color: $color-light-bg;
 
   .todo-container {
     width: 40vw;
@@ -25,18 +25,21 @@
         font-size: $font-size-36;
         text-transform: uppercase;
         font-weight: 900;
-        color: $color-white-2;
+        color: $color-light-gray-1;
         letter-spacing: 10px;
       }
 
       & .theme-switch-button {
-        background-color: transparent;
+        background: url("../assets/svg/icon-moon.svg") no-repeat;
+        width: 30px;
+        height: 30px;
         outline: none;
         border: none;
+        cursor: pointer;
 
         & > i {
           font-size: $font-size-36;
-          color: $color-white-2;
+          color: $color-light-gray-1;
         }
       }
     }
@@ -44,9 +47,9 @@
     .todo__input {
       display: flex;
       align-items: center;
-      height: 50px;
+      height: 65px;
       border-radius: 5px;
-      background-color: $color-white-1;
+      background-color: $color-light-gray-1;
       margin-bottom: 25px;
       padding: 16px 24px;
 
@@ -60,7 +63,7 @@
         border: none;
         outline: none;
         background-color: transparent;
-        color: $color-gray-1;
+        color: $color-light-gray-5;
         font-size: inherit;
       }
     }

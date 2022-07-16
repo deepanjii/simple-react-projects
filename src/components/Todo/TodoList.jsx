@@ -2,10 +2,10 @@ import React from 'react';
 import TodoActionRow from './TodoActionRow';
 import TodoListItem from './TodoListItem';
 import TodoListRow from './TodoListRow';
-import TodoUtils from './TodoUtils';
 import type { Todo } from './types';
 
 type Props = {
+  leftTodoItemsCount: number,
   onClearCompleted: Function,
   onDelete: Function,
   onFilterChange: Function,
@@ -14,6 +14,7 @@ type Props = {
 };
 
 const TodoList = ({
+  leftTodoItemsCount,
   onClearCompleted,
   onDelete,
   onFilterChange,
@@ -35,7 +36,7 @@ const TodoList = ({
     }
     <TodoListRow key={todoList.length}>
       <TodoActionRow
-        leftTodoItemsCount={TodoUtils.getIncompleteTodosCount({ todos: todoList })}
+        leftTodoItemsCount={leftTodoItemsCount}
         onClearCompleted={onClearCompleted}
         onFilterChange={onFilterChange}
       />

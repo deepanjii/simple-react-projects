@@ -1,0 +1,63 @@
+.todo.todo--dark {
+  background-image: url("../assets/images/bg-desktop-dark.jpg");
+  background-color: $color-dark-bg;
+
+  .todo-container {
+    .todo-header {
+      & .theme-switch-button {
+        background: url("../assets/svg/icon-sun.svg") no-repeat;
+      }
+    }
+
+    .todo__input {
+      background-color: $color-dark-gray-2 !important;
+  
+      .todo__input-element {
+        color: $color-dark-gray-5 !important;
+      }
+    }
+
+    .todo-list {
+      .todo-list__row {
+        background-color: $color-dark-gray-2;
+        box-shadow: none;
+
+        &:not(:last-child) {
+          border-bottom: 1.5px solid $color-dark-gray-3;
+        }
+
+        &:last-child {
+          box-shadow: none;
+        }
+
+        .todo-list__item__name {
+          color: $color-dark-gray-6;
+        }
+
+        .todo-list__item__name--striked {
+          color: $color-dark-gray-4;
+        }
+
+        .todo-action-row {
+          .todo-left-count, .todo-clear-completed {
+            color: $color-dark-gray-4;
+          }
+
+          button {
+            color: $color-dark-gray-4;
+
+            &.active {
+              color: $color-bright-blue;
+            }
+          }
+        }
+      }
+    }
+
+    .custom-checkbox {
+      .checkmark {
+        border: 1.5px solid $color-dark-gray-3;
+      }
+    }
+  }
+}
