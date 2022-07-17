@@ -32,12 +32,6 @@
   border-radius: 50%
 }
 
-/* On mouse-over, add a grey background color */
-.custom-checkbox:hover input ~ .checkmark {
-  // border-image: $bg-checkbox;
-  // border-radius: 50%;
-}
-
 /* When the checkbox is checked, add a blue background */
 .custom-checkbox input:checked ~ .checkmark {
   background-image: $color-checkbox;

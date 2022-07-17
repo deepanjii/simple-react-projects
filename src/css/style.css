@@ -153,7 +153,6 @@ html {
   border: 1.5px solid #e4e5f1;
   border-radius: 50%; }
 
-/* On mouse-over, add a grey background color */
 /* When the checkbox is checked, add a blue background */
 .custom-checkbox input:checked ~ .checkmark {
   background-image: linear-gradient(to right bottom, #57ddff, #c058f3); }

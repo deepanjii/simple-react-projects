@@ -10,19 +10,6 @@ import TodoUtils from './TodoUtils';
 import useTheme from './useTheme';
 import useTodo from './useTodo';
 
-const initialTodos = [
-  {
-    id: 1,
-    name: 'Finish project 1',
-    isCompleted: true
-  },
-  {
-    id: 2,
-    name: 'Finish UTs for project 1',
-    isCompleted: false
-  }
-];
-
 const Todo = (): Node => {
   const {
     todos,
@@ -31,7 +18,7 @@ const Todo = (): Node => {
     onTodoDelete,
     onTodoStatusChange,
     onClearCompletedTodo
-  } = useTodo(initialTodos);
+  } = useTodo(TodoUtils.todos);
   const [filteredTodos, setFilteredTodos]: [Array<TodoType>, Function] = useState(todos);
   const [activeFilter, setActiveFilter] = useState(TodoUtils.filters.ALL);
   const [theme, toggleTheme] = useTheme();

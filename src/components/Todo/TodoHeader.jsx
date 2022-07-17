@@ -1,5 +1,4 @@
 import React from 'react';
-// import ThemeIcon from '../../assets/svg/icon-moon.svg';
 import type { Node } from 'react';
 
 type Props = {
@@ -14,10 +13,7 @@ const TodoHeader = ({ onThemeChange }: Props): Node => (
       className="theme-switch-button"
       onClick={onThemeChange}
       type='button'
-    >
-      {/* <i className="fa-solid fa-moon" /> */}
-      {/* <img src={ThemeIcon} /> */}
-    </button>
+    />
   </div>
 );
 
