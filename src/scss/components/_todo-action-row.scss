@@ -1,0 +1,43 @@
+.todo-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-family: inherit;
+
+  .todo-left-count, .todo-clear-completed {
+    color: $color-light-gray-4;
+  }
+
+  .todo-toggle {
+    display: flex;
+
+    button:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  button {
+    color: $color-light-gray-4;
+    font-size: 14px;
+    font-family: inherit;
+    padding: 4px;
+    background-color: transparent;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+
+    &.active,
+    &.active:hover {
+      color: $color-bright-blue;
+    }
+
+    &:hover {
+      color: $color-light-gray-5;
+    }
+  }
+
+  .todo-clear-completed {
+    font-weight: 400;
+  }
+}

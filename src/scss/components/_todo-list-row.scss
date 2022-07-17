@@ -1,0 +1,21 @@
+.todo-list__row {
+  background-color: $color-light-gray-1;
+  padding: 18px 24px;
+  box-shadow: 1px 0 5px $color-light-gray-2;
+  
+  &:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 16px 24px;
+    box-shadow: 1px 2px 10px $color-light-gray-2;
+  }
+  
+  &:not(:last-child) {
+    border-bottom: 1.5px solid $color-light-gray-2;
+  }
+}
