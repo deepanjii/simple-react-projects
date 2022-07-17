@@ -3,10 +3,27 @@
 
 A compilation of mini react projects done as a part of learning.
 
+## Todo App
+### What's Completed
+- Setup project
+- Implement the design
+- cover UT for each component
+- use context API
+- use react hooks for all functional components
+- create custom hook for todo
+- create custom hook for theme
+
+### What's pending
+- cover UT for custom hooks
+- rename TodoActionRow file to TodoFooter
+- create typography css for sizes
+- make the todo list scrollable
+- change the position of back to dashboard link
 
 ## Demo
 
-[Link to demo](https://react-projects-simple.netlify.app/)
+### Todo App
+[Link to demo](https://react-projects-simple.netlify.app/todo)
 
 
 ## Tech Stack
