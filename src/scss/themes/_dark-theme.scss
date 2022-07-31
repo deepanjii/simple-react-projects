@@ -54,6 +54,11 @@
       }
     }
 
+    .todo-footer {
+      background-color: $color-dark-gray-2;
+      border-top: 1.5px solid $color-dark-gray-3;
+    }
+
     .custom-checkbox {
       .checkmark {
         border: 1.5px solid $color-dark-gray-3;

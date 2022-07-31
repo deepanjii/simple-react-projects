@@ -1,10 +1,15 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import TodoInput from '../TodoInput';
+import TodoProvider from '../TodoProvider';
 
 describe('TodoInput', () => {
-  const setup = (extraProps = {}) => {
-    const utils = render(<TodoInput onTodoAdd={null} {...extraProps} />);
+  const setup = () => {
+    const utils = render(
+      <TodoProvider initialTodos={[]}>
+        <TodoInput />
+      </TodoProvider>
+    );
     const input = utils.getByLabelText('todo-input-element', { selector: 'input' });
 
     return {
@@ -29,26 +34,8 @@ describe('TodoInput', () => {
     expect(todoInput.value).toBe('Finish mini project 1');
   });
 
-  test('shoud not invoke callback when enter is pressed with no todo text', () => {
-    const onTodoAddCallback = jest.fn().mockImplementation(() => {});
-    const { input: todoInput } = setup({ onTodoAdd: onTodoAddCallback });
-    fireEvent.change(todoInput, { target: { value: '' } });
-    fireEvent.keyDown(todoInput, { key: 'Enter', code: 'Enter', charCode: 13 });
-    expect(onTodoAddCallback).not.toHaveBeenCalled();
-  });
-
-  test('should invoke callback when enter is pressed after entering some todo text', () => {
-    const onTodoAddCallback = jest.fn().mockImplementation(() => {});
-    const { input: todoInput } = setup({ onTodoAdd: onTodoAddCallback });
-    fireEvent.change(todoInput, { target: { value: 'Finish mini project 1' } });
-    fireEvent.keyDown(todoInput, { key: 'Enter', code: 'Enter', charCode: 13 });
-    expect(onTodoAddCallback).toHaveBeenCalled();
-    expect(onTodoAddCallback).toHaveBeenCalledWith({ todoText: 'Finish mini project 1', checked: false });
-  });
-
   test('should clear the input when enter is pressed after entering some todo text', () => {
-    const onTodoAddCallback = jest.fn().mockImplementation(() => {});
-    const { input: todoInput } = setup({ onTodoAdd: onTodoAddCallback });
+    const { input: todoInput } = setup();
     fireEvent.change(todoInput, { target: { value: 'Finish mini project 1' } });
     fireEvent.keyDown(todoInput, { key: 'Enter', code: 'Enter', charCode: 13 });
     expect(todoInput.value).toEqual('');

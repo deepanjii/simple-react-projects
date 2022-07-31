@@ -1,47 +1,26 @@
 import React from 'react';
-import TodoActionRow from './TodoActionRow';
 import TodoListItem from './TodoListItem';
 import TodoListRow from './TodoListRow';
-import type { Todo } from './types';
+import useTodo from '../../hooks/useTodo';
 
-type Props = {
-  leftTodoItemsCount: number,
-  onClearCompleted: Function,
-  onDelete: Function,
-  onFilterChange: Function,
-  onStatusChange: Function,
-  todoList: Array<Todo>
+const TodoList = () => {
+  const { filteredTodos: todoList, onTodoDelete, onTodoStatusChange } = useTodo();
+  return (
+    <div className="todo-list">
+      {
+        todoList.map(todo => (
+          <TodoListRow key={todo.id}>
+            <TodoListItem
+              key={todo.id}
+              onDelete={onTodoDelete}
+              onStatusChange={onTodoStatusChange}
+              todo={todo}
+            />
+          </TodoListRow>
+        ))
+      }
+    </div>
+  );
 };
-
-const TodoList = ({
-  leftTodoItemsCount,
-  onClearCompleted,
-  onDelete,
-  onFilterChange,
-  onStatusChange,
-  todoList
-}: Props) => (
-  <div className="todo-list">
-    {
-      todoList.map(todo => (
-        <TodoListRow key={todo.id}>
-          <TodoListItem
-            key={todo.id}
-            onDelete={onDelete}
-            onStatusChange={onStatusChange}
-            todo={todo}
-          />
-        </TodoListRow>
-      ))
-    }
-    <TodoListRow key={todoList.length}>
-      <TodoActionRow
-        leftTodoItemsCount={leftTodoItemsCount}
-        onClearCompleted={onClearCompleted}
-        onFilterChange={onFilterChange}
-      />
-    </TodoListRow>
-  </div>
-);
 
 export default TodoList;

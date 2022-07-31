@@ -1,67 +1,26 @@
 import Link from '@mui/material/Link';
+import React from 'react';
 import type { Node } from 'react';
-import React, { useEffect, useMemo, useState } from 'react';
-import TodoContext from './TodoContext';
 import TodoHeader from './TodoHeader';
 import TodoInput from './TodoInput';
 import TodoList from './TodoList';
-import type { Todo as TodoType } from './types';
 import TodoUtils from './TodoUtils';
 import useTheme from './useTheme';
-import useTodo from './useTodo';
+import TodoFooter from './TodoFooter';
+import TodoProvider from './TodoProvider';
 
 const Todo = (): Node => {
-  const {
-    todos,
-    getIncompleteTodosCount,
-    onTodoAdd,
-    onTodoDelete,
-    onTodoStatusChange,
-    onClearCompletedTodo
-  } = useTodo(TodoUtils.todos);
-  const [filteredTodos, setFilteredTodos]: [Array<TodoType>, Function] = useState(todos);
-  const [activeFilter, setActiveFilter] = useState(TodoUtils.filters.ALL);
   const [theme, toggleTheme] = useTheme();
-  const todoContextValue = useMemo(() => ({
-    activeFilter,
-    filters: TodoUtils.filters
-  }));
-
-  useEffect(() => {
-    let updatedFilteredTodos = [];
-    switch (activeFilter) {
-      case TodoUtils.filters.ALL:
-        updatedFilteredTodos = todos; break;
-      case TodoUtils.filters.ACTIVE:
-        updatedFilteredTodos = todos.filter(todo => todo.isCompleted === false);
-        break;
-      case TodoUtils.filters.COMPLETED:
-        updatedFilteredTodos = todos.filter(todo => todo.isCompleted === true);
-        break;
-      default: break;
-    }
-    setFilteredTodos(updatedFilteredTodos);
-  }, [activeFilter, todos]);
-
-  const onFilterChange = filter => {
-    setActiveFilter(filter);
-  };
 
   return (
     <div className={`todo todo--${theme}`} data-testid="todo-bg-div">
       <div className="todo-container">
-        <TodoContext.Provider value={todoContextValue}>
+        <TodoProvider initialTodos={TodoUtils.todos}>
           <TodoHeader onThemeChange={toggleTheme} />
-          <TodoInput onTodoAdd={onTodoAdd} />
-          <TodoList
-            leftTodoItemsCount={getIncompleteTodosCount()}
-            onClearCompleted={onClearCompletedTodo}
-            onDelete={onTodoDelete}
-            onFilterChange={onFilterChange}
-            onStatusChange={onTodoStatusChange}
-            todoList={filteredTodos}
-          />
-        </TodoContext.Provider>
+          <TodoInput />
+          <TodoList />
+          <TodoFooter />
+        </TodoProvider>
       </div>
       <div><Link href="/">Back to dashboard</Link></div>
     </div>

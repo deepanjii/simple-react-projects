@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import TodoContext from '../TodoContext';
 import TodoList from '../TodoList';
+import TodoProvider from '../TodoProvider';
 import TodoUtils from '../TodoUtils';
 
 const todoList = [
@@ -20,14 +20,10 @@ const todoList = [
 /* eslint-disable react/jsx-no-constructed-context-values */
 describe('TodoList', () => {
   const setup = () => {
-    const todoContext = {
-      activeFilter: 'All',
-      filters: TodoUtils.filters
-    };
     const { container, ...rest } = render(
-      <TodoContext.Provider value={todoContext}>
+      <TodoProvider initialTodos={TodoUtils.todos}>
         <TodoList todoList={todoList} />
-      </TodoContext.Provider>
+      </TodoProvider>
     );
     const todos = container.getElementsByClassName('todo-list__item');
     return {

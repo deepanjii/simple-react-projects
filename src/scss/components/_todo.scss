@@ -15,6 +15,9 @@
   .todo-container {
     width: 40vw;
     height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 
     .todo-header {
       display: flex;
