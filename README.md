@@ -14,11 +14,12 @@ A compilation of mini react projects done as a part of learning.
 - create custom hook for theme
 
 ### What's pending
-- cover UT for custom hooks
-- rename TodoActionRow file to TodoFooter
-- create typography css for sizes
-- make the todo list scrollable
-- change the position of back to dashboard link
+[x] rename TodoActionRow file to TodoFooter
+[x] make the todo list scrollable
+[x] change the position of back to dashboard link
+[x] implement ContextProvider component
+[] create typography css for sizes
+[] cover UT for Context Provider Component
 
 ## Demo
 
