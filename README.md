@@ -14,12 +14,16 @@ A compilation of mini react projects done as a part of learning.
 - create custom hook for theme
 
 ### What's pending
-[x] rename TodoActionRow file to TodoFooter
-[x] make the todo list scrollable
-[x] change the position of back to dashboard link
-[x] implement ContextProvider component
-[] create typography css for sizes
-[] cover UT for Context Provider Component
+- [x] rename TodoActionRow file to TodoFooter
+- [x] make the todo list scrollable
+- [x] change the position of back to dashboard link
+- [x] implement ContextProvider component
+- [x] replace useState with useReducer
+- [ ] create typography css for sizes
+- [ ] cover UT for Context Provider Component
+- [ ] create custom hook for using local storage
+- [ ] use localStorage hook for storing theme preference
+- [ ] update the code with typescript
 
 ## Demo
 
