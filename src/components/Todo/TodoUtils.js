@@ -65,7 +65,7 @@ const TodoUtils = {
     {
       id: 2,
       name: 'Implement the design',
-      isCompleted: true
+      isCompleted: false
     }
   ]
 };

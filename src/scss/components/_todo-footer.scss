@@ -1,9 +1,14 @@
-.todo-action-row {
+.todo-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
   font-family: inherit;
+  padding: 18px 24px;
+  border-top: 1.5px solid $color-light-gray-2;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #fff;
 
   .todo-left-count, .todo-clear-completed {
     color: $color-light-gray-4;
