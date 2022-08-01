@@ -1,10 +1,10 @@
 .todo-list__row {
   background-color: #fff;
-  padding: 18px 24px;
+  padding: $ds-space-18 $ds-space-24;
   
   &:first-child {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: $ds-space-5;
+    border-top-right-radius: $ds-space-5;
   }
 
   &:not(:last-child) {

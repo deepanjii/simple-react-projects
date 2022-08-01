@@ -18,6 +18,8 @@
     }
 
     .todo-list {
+      box-shadow: 0 2px 10px $color-dark-gray-1;
+
       .todo-list__row {
         background-color: $color-dark-gray-2;
         box-shadow: none;
@@ -57,6 +59,7 @@
     .todo-footer {
       background-color: $color-dark-gray-2;
       border-top: 1.5px solid $color-dark-gray-3;
+      box-shadow: 0 2px 10px $color-dark-gray-1;
     }
 
     .custom-checkbox {

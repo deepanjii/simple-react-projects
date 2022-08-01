@@ -25,7 +25,7 @@ describe('TodoInput', () => {
 
   test('has a placeholder', () => {
     const { input: todoInput } = setup();
-    expect(todoInput.placeholder).toEqual('Enter a todo task here...');
+    expect(todoInput.placeholder).toEqual('Create a new todo...');
   });
 
   test('can take input value', () => {

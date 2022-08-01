@@ -1,9 +1,10 @@
 .todo-list {
   font-family: inherit;
   overflow-y: auto;
-  border-radius: 10px;
+  border-radius: $ds-space-10;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  box-shadow: 0 2px 10px $color-light-gray-2;
 
   &::-webkit-scrollbar {
     display: none;

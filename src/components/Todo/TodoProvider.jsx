@@ -103,7 +103,8 @@ const TodoProvider = ({ children, initialTodos }: Props) => {
     dispatch({ type: CLEAR_COMPLETED });
   };
 
-  const leftTodosCount = _.filter(todos, ({ isCompleted }) => !isCompleted).length;
+  const leftTodosCount = useMemo(() => (
+    _.filter(todos, ({ isCompleted }) => !isCompleted).length), [todos]);
 
   const onFilterChange = filter => dispatch({ type: UPDATE_FILTER, payload: filter });
 

@@ -30,7 +30,7 @@ const TodoInput = () => {
         className="todo__input-element"
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
-        placeholder="Enter a todo task here..."
+        placeholder="Create a new todo..."
         type="text"
         value={todoText}
       />

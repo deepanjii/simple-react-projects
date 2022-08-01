@@ -2,13 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
+  font-size: $font-size-16;
   font-family: inherit;
-  padding: 18px 24px;
+  padding: $ds-space-18 $ds-space-24;
   border-top: 1.5px solid $color-light-gray-2;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: $ds-space-5;
+  border-bottom-right-radius: $ds-space-5;
   background-color: #fff;
+  box-shadow: 0 2px 10px $color-light-gray-2;
 
   .todo-left-count, .todo-clear-completed {
     color: $color-light-gray-4;
@@ -18,13 +19,13 @@
     display: flex;
 
     button:not(:last-child) {
-      margin-right: 8px;
+      margin-right: $ds-space-8;
     }
   }
 
   button {
     color: $color-light-gray-4;
-    font-size: 14px;
+    font-size: $font-size-16;
     font-family: inherit;
     padding: 4px;
     background-color: transparent;
