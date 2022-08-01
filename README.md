@@ -19,7 +19,7 @@ A compilation of mini react projects done as a part of learning.
 - [x] change the position of back to dashboard link
 - [x] implement ContextProvider component
 - [x] replace useState with useReducer
-- [ ] create typography css for sizes
+- [x] create typography css for sizes
 - [ ] cover UT for Context Provider Component
 - [ ] create custom hook for using local storage
 - [ ] use localStorage hook for storing theme preference
