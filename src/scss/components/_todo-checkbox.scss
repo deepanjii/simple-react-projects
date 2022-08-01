@@ -1,11 +1,11 @@
 .custom-checkbox {
   display: block;
   position: relative;
-  height: 25px;
-  padding-left: 35px;
-  margin-right: 12px;
+  height: 30px;
+  padding-left: $ds-space-18 * 2;
+  margin-right: $ds-space-12;
   cursor: pointer;
-  font-size: 22px;
+  font-size: $font-size-22;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -26,8 +26,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
   border: 1.5px solid $color-light-gray-2;
   border-radius: 50%
 }
@@ -51,12 +51,12 @@
 
 /* Style the checkmark/indicator */
 .custom-checkbox .checkmark:after {
-  left: 9px;
-  top: 5px;
+  left: 11px;
+  top: 6px;
   width: 5px;
-  height: 10px;
+  height: 12px;
   border: solid $color-light-gray-1;
-  border-width: 0 2px 2px 0;
+  border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
