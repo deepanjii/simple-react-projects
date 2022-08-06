@@ -31,6 +31,8 @@ A compilation of mini react projects done as a part of learning.
 ### Todo App
 [Link to demo](https://react-projects-simple.netlify.app/todo)
 
+### Test Coverage
+<img width="1536" alt="Screenshot 2022-08-06 at 9 33 36 PM" src="https://user-images.githubusercontent.com/11153724/183256792-3e95fd88-956c-4870-8b9f-0f6bdef42ccc.png">
 
 ## Tech Stack
 **Client:**
