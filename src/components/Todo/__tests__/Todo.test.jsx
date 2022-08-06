@@ -9,6 +9,8 @@ describe('Todo', () => {
     return utils;
   };
 
+  afterEach(() => window?.localStorage?.clear());
+
   test('renders without error', () => {
     const { getByText } = setup();
     expect(getByText(/todo/i)).toBeTruthy();
