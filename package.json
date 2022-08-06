@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config config/webpack.prod.js",
+    "coverage": "npm run test -- --coverage",
     "flow": "flow",
     "lint": "npx eslint src/components --ext .js,.jsx",
     "prepare": "husky install",

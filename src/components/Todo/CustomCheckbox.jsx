@@ -11,9 +11,11 @@ const CustomCheckbox = ({ checked, onChange }: Props): Node => {
   return (
     <label className="custom-checkbox" htmlFor={inputId}>
       <input
+        aria-label='custom-checkbox'
         checked={checked}
         className="custom-checkbox__input"
         id={inputId}
+        name='custom-checkbox'
         onChange={onChange}
         type="checkbox"
       />

@@ -34,6 +34,14 @@ describe('TodoInput', () => {
     expect(todoInput.value).toBe('Finish mini project 1');
   });
 
+  test('should check the checkbox on click', () => {
+    const { getByLabelText } = setup();
+    const checkbox = getByLabelText('custom-checkbox', { selector: 'input' });
+    expect(checkbox.checked).toBe(false);
+    fireEvent.click(checkbox);
+    expect(checkbox.checked).toBe(true);
+  });
+
   test('should clear the input when enter is pressed after entering some todo text', () => {
     const { input: todoInput } = setup();
     fireEvent.change(todoInput, { target: { value: 'Finish mini project 1' } });
