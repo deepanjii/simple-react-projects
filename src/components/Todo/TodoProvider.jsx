@@ -8,6 +8,7 @@ import type {
 } from './types';
 import TodoContext from '../../contexts/TodoContext';
 import TodoUtils from './TodoUtils';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 const ADD_TODO = 'ADD_TODO';
 const UPDATE_TODO = 'UPDATE_TODO';
@@ -74,11 +75,11 @@ const TodoProvider = ({ children, initialTodos }: Props) => {
     filteredTodos: initialTodos,
     activeFilter: TodoUtils.filters.ALL
   };
-
+  const [todoState, setTodoState] = useLocalStorage('todo', initialState);
   const [
     { todos, activeFilter, filteredTodos },
     dispatch
-  ]: [TodoState, Function] = useReducer(todosReducer, initialState);
+  ]: [TodoState, Function] = useReducer(todosReducer, todoState);
 
   useEffect(() => {
     let updatedTodos;
@@ -96,6 +97,10 @@ const TodoProvider = ({ children, initialTodos }: Props) => {
 
     dispatch({ type: UPDATE_FILTERED_TODOS, payload: updatedTodos });
   }, [activeFilter, todos]);
+
+  useEffect(() => {
+    setTodoState({ todos, activeFilter, filteredTodos });
+  }, [todos, activeFilter, filteredTodos]);
 
   const createNewTodo = ({ todosLength, todoText, todoStatus }: CreateNewTodo): Todo => ({
     id: todosLength + 1,

@@ -1,7 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import type { Node } from 'react';
 import type { ThemeContextValue } from './types';
 import TodoThemeContext from '../../contexts/TodoThemeContext';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 type TodoThemeProviderProps = {
   children: Node
@@ -20,7 +21,7 @@ const appTheme: AppTheme = {
 };
 
 const TodoThemeProvider = ({ children }: TodoThemeProviderProps): Node => {
-  const [theme, setTheme]: ThemeState = useState(appTheme.light);
+  const [theme, setTheme]: ThemeState = useLocalStorage('theme', appTheme.light);
   const toggleTheme = () => {
     setTheme(theme === appTheme.light ? appTheme.dark : appTheme.light);
   };
