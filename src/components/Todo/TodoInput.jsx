@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import type { TodoContextValue } from './types';
 import CustomCheckbox from './CustomCheckbox';
 import useTodo from '../../hooks/useTodo';
 
 const TodoInput = () => {
   const [todoText, setTodoText] = useState('');
   const [checked, setChecked] = useState(false);
-  const { onTodoAdd } = useTodo();
+  const { onTodoAdd }: TodoContextValue = useTodo();
 
   const handleInputChange = (event: Object) => {
     setTodoText(event.target.value);

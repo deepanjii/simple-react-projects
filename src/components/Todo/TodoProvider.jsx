@@ -1,6 +1,11 @@
 import _ from 'lodash';
 import React, { useEffect, useReducer, useMemo } from 'react';
-import type { CreateNewTodo, Todo as TodoType } from './types';
+import type {
+  CreateNewTodo,
+  Todo,
+  Todos,
+  TodoContextValue
+} from './types';
 import TodoContext from '../../contexts/TodoContext';
 import TodoUtils from './TodoUtils';
 
@@ -12,9 +17,25 @@ const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
 const UPDATE_FILTER = 'UPDATE_FILTER';
 const UPDATE_FILTERED_TODOS = 'UPDATE_FILTERED_TODOS';
 
-const todosReducer = (state, action) => {
-  let index;
-  let updatedTodos;
+type Props = {
+  children: Node,
+  initialTodos: Todos
+};
+
+type TodoState = {
+  todos: Todos,
+  filteredTodos: Todos,
+  activeFilter: string
+};
+
+type TodoAction = {
+  type: string,
+  payload?: string | number | Object
+}
+
+const todosReducer = (state: TodoState, action: TodoAction) => {
+  let index: number;
+  let updatedTodos: Todos;
   switch (action.type) {
     case ADD_TODO: return { ...state, todos: [...state.todos, action.payload] };
 
@@ -47,20 +68,17 @@ const todosReducer = (state, action) => {
   }
 };
 
-type Props = {
-  children: Node,
-  initialTodos: Array<Todo>
-}
-
 const TodoProvider = ({ children, initialTodos }: Props) => {
-  const [
-    { todos, activeFilter, filteredTodos },
-    dispatch
-  ]: [{todos: Array<TodoType>}, Function] = useReducer(todosReducer, {
+  const initialState: TodoState = {
     todos: initialTodos,
     filteredTodos: initialTodos,
     activeFilter: TodoUtils.filters.ALL
-  });
+  };
+
+  const [
+    { todos, activeFilter, filteredTodos },
+    dispatch
+  ]: [TodoState, Function] = useReducer(todosReducer, initialState);
 
   useEffect(() => {
     let updatedTodos;
@@ -103,19 +121,19 @@ const TodoProvider = ({ children, initialTodos }: Props) => {
     dispatch({ type: CLEAR_COMPLETED });
   };
 
-  const leftTodosCount = useMemo(() => (
+  const leftTodosCount: number = useMemo(() => (
     _.filter(todos, ({ isCompleted }) => !isCompleted).length), [todos]);
 
-  const onFilterChange = filter => dispatch({ type: UPDATE_FILTER, payload: filter });
+  const onFilterChange = (filter: string) => dispatch({ type: UPDATE_FILTER, payload: filter });
 
-  const filters = useMemo(() => TodoUtils.filters);
+  const filters = useMemo(() => TodoUtils.filters, []);
 
-  const value = useMemo(() => ({
+  const value: TodoContextValue = useMemo(() => ({
     activeFilter,
-    todos,
     filteredTodos,
     filters,
     leftTodosCount,
+    todos,
     onTodoAdd,
     onTodoStatusChange,
     onTodoDelete,

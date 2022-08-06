@@ -49,14 +49,13 @@ html {
   font-family: 'Josefin Sans';
   width: 100vw;
   height: 100vh;
-  background-image: url("../assets/images/bg-desktop-light.jpg");
-  background-repeat: no-repeat;
+  background: #fafafa url("../assets/images/bg-desktop-light.jpg") no-repeat;
+  background-size: contain;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
-  background-color: #fafafa; }
+  font-size: 18px; }
   .todo .todo-container {
     width: 40vw;
     height: 80vh;
