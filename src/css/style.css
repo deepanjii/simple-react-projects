@@ -45,6 +45,53 @@ html {
   .todo.todo--dark .todo-container .custom-checkbox .checkmark {
     border: 1.5px solid #393a4c; }
 
+.dashboard {
+  width: 100vw;
+  height: 100vh;
+  display: flex; }
+  .dashboard .dashboard-content {
+    flex: 1; }
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 20vw;
+  height: 100%;
+  background-color: #fafafa;
+  box-shadow: 0 1px 20px darkgrey;
+  padding: 10px; }
+  .sidebar .sidebar__header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #9394a5; }
+    .sidebar .sidebar__header .sidebar__header__image {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%; }
+    .sidebar .sidebar__header .sidebar__header__title {
+      flex: 1;
+      font-size: 30px;
+      font-weight: 100; }
+  .sidebar .sidebar__menu {
+    flex: 1;
+    cursor: pointer; }
+    .sidebar .sidebar__menu .sidebar__menu__item {
+      display: block;
+      padding: 10px 16px;
+      border-radius: 4px;
+      font-size: 16px;
+      text-decoration: none;
+      color: inherit; }
+      .sidebar .sidebar__menu .sidebar__menu__item.active, .sidebar .sidebar__menu .sidebar__menu__item:hover {
+        color: #fafafa; }
+      .sidebar .sidebar__menu .sidebar__menu__item.active, .sidebar .sidebar__menu .sidebar__menu__item.active:hover {
+        background-color: #3a7bfd; }
+      .sidebar .sidebar__menu .sidebar__menu__item:hover {
+        background-color: rgba(58, 123, 253, 0.8); }
+
 .todo {
   font-family: 'Josefin Sans';
   width: 100vw;
@@ -142,7 +189,7 @@ html {
   padding-left: 36px;
   margin-right: 12px;
   cursor: pointer;
-  font-size: 2px;
+  font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
