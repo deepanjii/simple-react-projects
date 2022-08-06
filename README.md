@@ -12,17 +12,18 @@ A compilation of mini react projects done as a part of learning.
 - use react hooks for all functional components
 - create custom hook for todo
 - create custom hook for theme
-
-### What's pending
 - [x] rename TodoActionRow file to TodoFooter
 - [x] make the todo list scrollable
 - [x] change the position of back to dashboard link
 - [x] implement ContextProvider component
 - [x] replace useState with useReducer
 - [x] create typography css for sizes
-- [ ] cover UT for Context Provider Component
-- [ ] create custom hook for using local storage
-- [ ] use localStorage hook for storing theme preference
+- [x] cover UT for Context Provider Component
+- [x] create custom hook for using local storage
+- [x] use localStorage hook for storing theme preference
+
+### What's pending
+- [ ] remove flow from project
 - [ ] update the code with typescript
 
 ## Demo
