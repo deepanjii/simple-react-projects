@@ -22,7 +22,7 @@ describe('TodoList', () => {
   const setup = () => {
     const { container, ...rest } = render(
       <TodoProvider initialTodos={TodoUtils.todos}>
-        <TodoList todoList={todoList} />
+        <TodoList />
       </TodoProvider>
     );
     const todos = container.getElementsByClassName('todo-list__item');
