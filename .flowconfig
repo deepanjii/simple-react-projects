@@ -12,3 +12,6 @@ src/components
 [options]
 
 [strict]
+
+[untyped]
+.*\.types\.js
