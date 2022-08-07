@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import React from 'react';
 import Todo from '../Todo';
 import TodoProvider from '../TodoProvider';
@@ -12,7 +13,8 @@ describe('Todo Provider', () => {
         <TodoProvider initialTodos={TodoUtils.todos}>
           <Todo />
         </TodoProvider>
-      </TodoThemeProvider>
+      </TodoThemeProvider>,
+      { wrapper: MemoryRouter }
     );
 
     return utils;

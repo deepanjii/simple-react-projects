@@ -3,7 +3,7 @@ import DashboardLayout from '../Dashboard';
 
 const Achievements = () => (
   <DashboardLayout>
-    <div>Achievements</div>
+    <div>Achievements Page</div>
   </DashboardLayout>
 );
 

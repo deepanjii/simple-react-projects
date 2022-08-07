@@ -3,7 +3,7 @@ import DashboardLayout from '../Dashboard';
 
 const Home = () => (
   <DashboardLayout>
-    <div>Home</div>
+    <div>Home Page</div>
   </DashboardLayout>
 );
 

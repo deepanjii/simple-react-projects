@@ -1,8 +1,5 @@
 import React, {
-  useEffect,
-  useCallback,
-  useMemo,
-  useReducer
+  useMemo
 } from 'react';
 import SidebarMenuContext from '../../contexts/SidebarMenuContext';
 import type { SidebarMenus, SidebarContextValue } from './types';
@@ -31,40 +28,12 @@ type Props = {
   children: any
 };
 
-type SidebarState = {
-  activeMenu: string
-};
-
-type SidebarAction = {
-  type: string,
-  payload?: string
-};
-
-const SWITCH_MENU = 'SWITCH_MENU';
-
-const sidebarReducer = (state: SidebarState, action: SidebarAction) => {
-  switch (action.type) {
-    case SWITCH_MENU: return { ...state, activeMenu: action.payload };
-    default: return state;
-  }
-};
-
-const initialState: SidebarState = { activeMenu: sidebarMenus[0].name };
-
 const SidebarProvider = ({ children }: Props) => {
-  const [sidebarState, setSidebarState] = useLocalStorage('menu', initialState);
-  const [
-    { activeMenu },
-    dispatch
-  ]: [SidebarState, Function] = useReducer(sidebarReducer, sidebarState);
+  const [activeMenu, setActiveMenu] = useLocalStorage('menu', sidebarMenus[0].name);
 
-  useEffect(() => {
-    setSidebarState({ activeMenu });
-  }, [activeMenu]);
-
-  const onMenuChange = useCallback((menu: string) => {
-    dispatch({ type: SWITCH_MENU, payload: menu });
-  });
+  const onMenuChange = (menu: string) => {
+    setActiveMenu(menu);
+  };
 
   const value: SidebarContextValue = useMemo(() => ({
     activeMenu,

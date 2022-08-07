@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 import useSidebar from '../../hooks/useSidebar';
 import type { SidebarContextValue } from './types';
@@ -12,7 +13,13 @@ const SidebarMenuItem = React.memo(({ name, slug }: SidebarMenuItemProps) => {
   const handleMenuClick = () => onMenuChange(name);
 
   return (
-    <a className={`sidebar__menu__item ${name === activeMenu && 'active'}`} href={slug} onClick={handleMenuClick}>{name}</a>
+    <Link
+      className={`sidebar__menu__item ${name === activeMenu ? 'active' : ''}`}
+      onClick={handleMenuClick}
+      to={slug}
+    >
+      {name}
+    </Link>
   );
 });
 

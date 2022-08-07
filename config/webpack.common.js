@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   output: {
-    assetModuleFilename: 'images/[name][ext]'
+    assetModuleFilename: "assets/[name][ext]"
   },
   module: {
     rules: [
@@ -23,16 +23,8 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        type: 'asset/resource'
-        // use: [
-        //   {
-        //     loader: 'file-loader',
-        //     options: {
-        //       name: '[path][name].[ext]'
-        //     }
-        //   }
-        // ],
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: "asset/resource"
       }
     ]
   },
