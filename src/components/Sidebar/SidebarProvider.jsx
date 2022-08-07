@@ -8,19 +8,23 @@ import useLocalStorage from '../../hooks/useLocalStorage';
 const sidebarMenus: SidebarMenus = [
   {
     slug: '/',
-    name: 'Home'
+    name: 'Home',
+    icon: 'home'
   },
   {
     slug: '/projects',
-    name: 'Projects'
+    name: 'Projects',
+    icon: 'widgets'
   },
   {
     slug: '/skills',
-    name: 'Skills'
+    name: 'Skills',
+    icon: 'tips_and_updates'
   },
   {
     slug: '/achievements',
-    name: 'Achievements'
+    name: 'Achievements',
+    icon: 'workspace_premium'
   }
 ];
 

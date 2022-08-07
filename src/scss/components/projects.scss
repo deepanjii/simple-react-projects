@@ -1,0 +1,44 @@
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+
+  .project-card {
+    text-decoration: none;
+  }
+
+  .project {
+    border: 1px solid $color-light-gray-2;
+    border-radius: $ds-space-10;
+    overflow: hidden;
+    width: 200px;
+    background-color: $color-light-gray-1;
+    box-shadow: 0 1px 10px $color-light-gray-3;
+
+    &:hover {
+      background-color: $color-bright-blue;
+
+      .project__title {
+        color: $color-white-100;
+      }
+    }
+
+    .project__img {
+      width: 100%;
+      height: auto;
+    }
+
+    .project__title {
+      padding: $ds-space-10;
+      color: $color-bright-blue;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+}
+
+.page-header {
+  font-size: $font-size-22;
+  font-weight: 100;
+  margin-bottom: $ds-space-20;
+}

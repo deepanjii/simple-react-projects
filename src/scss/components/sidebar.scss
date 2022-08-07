@@ -33,23 +33,17 @@
     cursor: pointer;
 
     .sidebar__menu__item {
-      display: block;
-      padding: $ds-space-10 $ds-space-16;
+      display: flex;
+      align-items: flex-end;
+      gap: $ds-space-10;
+      padding: $ds-space-10 $ds-space-18;
       border-radius: $ds-space-4;
-      font-size: $font-size-16;
+      font-size: $font-size-18;
       text-decoration: none;
       color: inherit;
       
       &.active, &:hover {
-        color: $color-white-100;
-      }
-
-      &.active, &.active:hover {
-        background-color: $color-bright-blue;
-      }
-
-      &:hover {
-        background-color: rgba($color-bright-blue, 0.8);
+        color: $color-bright-blue;
       }
     }
   }

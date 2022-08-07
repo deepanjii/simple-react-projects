@@ -4,11 +4,12 @@ import useSidebar from '../../hooks/useSidebar';
 import type { SidebarContextValue } from './types';
 
 type SidebarMenuItemProps = {
+  icon: string,
   name: string,
   slug: string
 };
 
-const SidebarMenuItem = React.memo(({ name, slug }: SidebarMenuItemProps) => {
+const SidebarMenuItem = React.memo(({ icon, name, slug }: SidebarMenuItemProps) => {
   const { activeMenu, onMenuChange }: SidebarContextValue = useSidebar();
   const handleMenuClick = () => onMenuChange(name);
 
@@ -18,7 +19,8 @@ const SidebarMenuItem = React.memo(({ name, slug }: SidebarMenuItemProps) => {
       onClick={handleMenuClick}
       to={slug}
     >
-      {name}
+      <span className='material-symbols-rounded'>{icon}</span>
+      <span>{name}</span>
     </Link>
   );
 });
