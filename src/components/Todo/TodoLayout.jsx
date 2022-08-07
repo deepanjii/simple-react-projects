@@ -1,5 +1,5 @@
-import Link from '@mui/material/Link';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import type { ReactNode } from 'react';
 import type { ThemeContextValue } from './types';
 import useTheme from '../../hooks/useTheme';
@@ -16,7 +16,7 @@ const TodoLayout = ({ children }: TodoLayoutProps) => {
       <div className="todo-container">
         {children}
       </div>
-      <div><Link href="/">Back to dashboard</Link></div>
+      <div><Link to='/projects'>Back to dashboard</Link></div>
     </div>
   );
 };

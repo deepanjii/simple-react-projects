@@ -1,4 +1,4 @@
 /* @flow */
-import Dashboard from './Dashboard';
+import DashboardLayout from './DashboardLayout';
 
-export default Dashboard;
+export default DashboardLayout;

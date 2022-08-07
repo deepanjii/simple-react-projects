@@ -1,6 +1,9 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  output: {
+    assetModuleFilename: "assets/[name][ext]"
+  },
   module: {
     rules: [
       {
@@ -18,6 +21,10 @@ module.exports = {
         test: /\.(css|scss)$/,
         exclude: /node_modules/,
         use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: "asset/resource"
       }
     ]
   },

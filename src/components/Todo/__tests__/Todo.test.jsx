@@ -1,10 +1,11 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { fireEvent, render } from '@testing-library/react';
 import Todo from '../Todo';
 
 describe('Todo', () => {
   const setup = () => {
-    const utils = render(<Todo />);
+    const utils = render(<Todo />, { wrapper: MemoryRouter });
 
     return utils;
   };
