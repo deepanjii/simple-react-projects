@@ -1,7 +1,9 @@
+/* @flow */
 import React from 'react';
+import type { Node } from 'react';
 import DashboardLayout from '../Dashboard';
 
-const Achievements = () => (
+const Achievements = (): Node => (
   <DashboardLayout>
     <div>Achievements Page</div>
   </DashboardLayout>

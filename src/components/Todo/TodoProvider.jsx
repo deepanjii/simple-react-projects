@@ -1,5 +1,7 @@
+/* @flow */
 import _ from 'lodash';
 import React, { useEffect, useReducer, useMemo } from 'react';
+import type { Node } from 'react';
 import type {
   CreateNewTodo,
   Todo,
@@ -69,7 +71,7 @@ const todosReducer = (state: TodoState, action: TodoAction) => {
   }
 };
 
-const TodoProvider = ({ children, initialTodos }: Props) => {
+const TodoProvider = ({ children, initialTodos }: Props): Node => {
   const initialState: TodoState = {
     todos: initialTodos,
     filteredTodos: initialTodos,

@@ -1,9 +1,11 @@
+/* @flow */
 import React from 'react';
+import type { Node } from 'react';
 import type { SidebarContextValue } from './types';
 import SidebarMenuItem from './SidebarMenuItem';
 import useSidebar from '../../hooks/useSidebar';
 
-const SidebarMenu = () => {
+const SidebarMenu = (): Node => {
   const { menus }: SidebarContextValue = useSidebar();
   return (
     <div className="sidebar__menu">

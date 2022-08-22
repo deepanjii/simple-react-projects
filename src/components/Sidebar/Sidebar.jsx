@@ -1,8 +1,10 @@
+/* @flow */
 import React from 'react';
+import type { Node } from 'react';
 import SidebarHeader from './SidebarHeader';
 import SidebarMenu from './SidebarMenu';
 
-const Sidebar = () => (
+const Sidebar = (): Node => (
   <div className='sidebar'>
     <SidebarHeader />
     <SidebarMenu />

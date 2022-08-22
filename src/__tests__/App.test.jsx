@@ -18,9 +18,9 @@ describe('App', () => {
   }
 
   test('should switch to different routes', async() => {  
-    const { getByText } = setup();
+    const { getByText, queryByText } = setup();
 
-    expect(getByText(/home page/i)).toBeInTheDocument();
+    expect(queryByText(/home page/i)).toBeInTheDocument();
 
     // Switch to projects page
     act(() => {
@@ -28,7 +28,7 @@ describe('App', () => {
       fireEvent.click(projectMenu);
     });
 
-    expect(getByText(/todo app/i)).toBeInTheDocument();
+    expect(queryByText(/todo app/i)).toBeInTheDocument();
 
     // Switch to skills page
     act(() => {
@@ -36,7 +36,7 @@ describe('App', () => {
       fireEvent.click(skillsMenu);
     });
 
-    expect(getByText(/skills page/i)).toBeInTheDocument();
+    expect(queryByText(/skills page/i)).toBeInTheDocument();
 
 
     // Switch to achievements page
@@ -49,7 +49,7 @@ describe('App', () => {
 
     // Switch to home page
     act(() => {
-      const homeMenu = getByText(/home/i);
+      const homeMenu = getByText('Home');
       fireEvent.click(homeMenu);
     });
 

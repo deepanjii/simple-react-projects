@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { Node } from 'react';
@@ -8,7 +9,7 @@ type Props = {
   url: string
 };
 
-const ProjectLink = ({ children, isExternal, url }: Props) => (
+const ProjectLink = ({ children, isExternal, url }: Props): Node => (
   isExternal ? (
     <a className='project-card' rel='noreferrer' target='_blank' href={url}>{children}</a>
   ) : (

@@ -6,16 +6,16 @@ import SidebarMenu from '../SidebarMenu';
 
 describe('SidebarMenu', () => {
   test('should render sidebar menu', () => {
-    const { getByText } = render(
+    const { queryByText } = render(
       <SidebarProvider>
         <SidebarMenu />
       </SidebarProvider>,
       { wrapper: MemoryRouter }
     );
 
-    expect(getByText(/home/i)).toBeInTheDocument();
-    expect(getByText(/projects/i)).toBeInTheDocument();
-    expect(getByText(/skill/i)).toBeInTheDocument();
-    expect(getByText(/achievements/i)).toBeInTheDocument();
+    expect(queryByText('Home')).toBeInTheDocument();
+    expect(queryByText(/projects/i)).toBeInTheDocument();
+    expect(queryByText(/skill/i)).toBeInTheDocument();
+    expect(queryByText(/achievements/i)).toBeInTheDocument();
   });
 });

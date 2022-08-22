@@ -1,3 +1,4 @@
+/* @flow */
 export type Todo = {
   id: number,
   isCompleted: boolean,

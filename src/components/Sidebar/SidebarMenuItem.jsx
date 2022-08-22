@@ -1,5 +1,7 @@
+/* @flow */
 import { Link } from 'react-router-dom';
 import React from 'react';
+import type { Node } from 'react';
 import useSidebar from '../../hooks/useSidebar';
 import type { SidebarContextValue } from './types';
 
@@ -9,7 +11,7 @@ type SidebarMenuItemProps = {
   slug: string
 };
 
-const SidebarMenuItem = React.memo(({ icon, name, slug }: SidebarMenuItemProps) => {
+const SidebarMenuItem = React.memo(({ icon, name, slug }: SidebarMenuItemProps): Node => {
   const { activeMenu, onMenuChange }: SidebarContextValue = useSidebar();
   const handleMenuClick = () => onMenuChange(name);
 
