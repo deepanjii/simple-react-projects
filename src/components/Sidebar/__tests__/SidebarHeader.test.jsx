@@ -6,14 +6,14 @@ import SidebarHeader from '../SidebarHeader';
 
 describe('SidebarHeader', () => {
   test('should render header with name and profile pic', () => {
-    const { getByRole, getByText } = render(
+    const { getByRole, queryByText } = render(
       <SidebarProvider>
         <SidebarHeader />
       </SidebarProvider>
     );
     const profilePic = getByRole('img');
 
-    expect(getByText(/deepan a/i)).toBeInTheDocument();
+    expect(queryByText(/deepan a/i)).toBeInTheDocument();
     expect(profilePic).toHaveAttribute('src', ProfilePic);
     expect(profilePic).toHaveAttribute('alt', 'deepan profile pic');
   });

@@ -6,13 +6,13 @@ import SidebarMenuItem from '../SidebarMenuItem';
 
 describe('SidebarMenuItem', () => {
   test('should render SidebarMenuItem', () => {
-    const { getByText } = render(
+    const { queryByText } = render(
       <SidebarProvider>
         <SidebarMenuItem name='Home' slug='/home' />
       </SidebarProvider>,
       { wrapper: MemoryRouter }
     );
 
-    expect(getByText(/home/i)).toBeInTheDocument();
+    expect(queryByText('Home')).toBeInTheDocument();
   });
 });

@@ -1,4 +1,6 @@
+/* @flow */
 import React from 'react';
+import type { Node } from 'react';
 import DashboardLayout from '../Dashboard';
 import Project from './Project';
 import type { Projects as ProjectsType } from './types';
@@ -37,7 +39,7 @@ const projects: ProjectsType = [
   }
 ];
 
-const Projects = () => (
+const Projects = (): Node => (
   <DashboardLayout>
     <h2 className='page-header'>Projects</h2>
     <div className="projects">

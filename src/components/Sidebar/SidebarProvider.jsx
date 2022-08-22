@@ -1,6 +1,8 @@
+/* @flow */
 import React, {
   useMemo
 } from 'react';
+import type { Node } from 'react';
 import SidebarMenuContext from '../../contexts/SidebarMenuContext';
 import type { SidebarMenus, SidebarContextValue } from './types';
 import useLocalStorage from '../../hooks/useLocalStorage';
@@ -32,7 +34,7 @@ type Props = {
   children: any
 };
 
-const SidebarProvider = ({ children }: Props) => {
+const SidebarProvider = ({ children }: Props): Node => {
   const [activeMenu, setActiveMenu] = useLocalStorage('menu', sidebarMenus[0].name);
 
   const onMenuChange = (menu: string) => {

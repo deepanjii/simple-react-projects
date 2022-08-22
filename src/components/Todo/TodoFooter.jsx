@@ -1,11 +1,13 @@
+/* @flow */
 import _ from 'lodash';
 import React from 'react';
 import useTodo from '../../hooks/useTodo';
+import { TodoContextValue } from './types';
 
 const TodoFooter = () => {
   const {
     activeFilter, filters, leftTodosCount, onClearCompletedTodo, onFilterChange
-  } = useTodo();
+  }: TodoContextValue = useTodo();
 
   return (
     <div className="todo-footer">

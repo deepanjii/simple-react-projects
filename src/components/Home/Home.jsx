@@ -1,7 +1,9 @@
+/* @flow */
 import React from 'react';
+import type { Node } from 'react';
 import DashboardLayout from '../Dashboard';
 
-const Home = () => (
+const Home = (): Node => (
   <DashboardLayout>
     <div>Home Page</div>
   </DashboardLayout>

@@ -18,25 +18,25 @@ describe('SidebarHeader', () => {
   };
 
   test('should render header with name and profile pic', () => {
-    const { getByRole, getByText } = setup();
+    const { getByRole, queryByText } = setup();
     const profilePic = getByRole('img');
 
     // Render header
-    expect(getByText(/deepan a/i)).toBeInTheDocument();
+    expect(queryByText(/deepan a/i)).toBeInTheDocument();
     expect(profilePic).toHaveAttribute('src', ProfilePic);
     expect(profilePic).toHaveAttribute('alt', 'deepan profile pic');
 
     // Render menu
-    expect(getByText(/home/i)).toBeInTheDocument();
-    expect(getByText(/projects/i)).toBeInTheDocument();
-    expect(getByText(/skill/i)).toBeInTheDocument();
-    expect(getByText(/achievements/i)).toBeInTheDocument();
+    expect(queryByText('Home')).toBeInTheDocument();
+    expect(queryByText(/projects/i)).toBeInTheDocument();
+    expect(queryByText(/skill/i)).toBeInTheDocument();
+    expect(queryByText(/achievements/i)).toBeInTheDocument();
   });
 
   test('should switch active menu on clicking menu item', () => {
-    const { getByText } = setup();
-    const homeMenu = getByText(/home/i);
-    const projectMenu = getByText(/projects/i);
+    const { getByRole } = setup();
+    const homeMenu = getByRole('link', { name: /home/i });
+    const projectMenu = getByRole('link', { name: /projects/i });
 
     // default active menu
     expect(homeMenu.className).toContain('active');

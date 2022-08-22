@@ -1,3 +1,4 @@
+/* @flow */
 import React, { useId } from 'react';
 import type { Node } from 'react';
 
@@ -7,7 +8,7 @@ type Props = {
 };
 
 const CustomCheckbox = ({ checked, onChange }: Props): Node => {
-  const inputId = useId();
+  const inputId: string = useId();
   return (
     <label className="custom-checkbox" htmlFor={inputId}>
       <input

@@ -9,13 +9,11 @@ describe('Projects', () => {
     return utils;
   };
 
-  test('should render Projects page', () => {
-    const { getByText } = setup();
-    expect(getByText(/projects page/i)).toBeTruthy();
-  });
-
   test('should render projects', () => {
     const { getByText } = setup();
     expect(getByText(/todo app/i)).toBeTruthy();
+    expect(getByText(/natours/i)).toBeTruthy();
+    expect(getByText(/trillio/i)).toBeTruthy();
+    expect(getByText(/nexter/i)).toBeTruthy();
   });
 });

@@ -1,3 +1,4 @@
+/* @flow */
 import React, { useState } from 'react';
 import type { TodoContextValue } from './types';
 import CustomCheckbox from './CustomCheckbox';
