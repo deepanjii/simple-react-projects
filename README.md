@@ -3,29 +3,6 @@
 
 A compilation of mini react projects done as a part of learning.
 
-## Todo App
-### What's Completed
-- Setup project
-- Implement the design
-- cover UT for each component
-- use context API
-- use react hooks for all functional components
-- create custom hook for todo
-- create custom hook for theme
-- [x] rename TodoActionRow file to TodoFooter
-- [x] make the todo list scrollable
-- [x] change the position of back to dashboard link
-- [x] implement ContextProvider component
-- [x] replace useState with useReducer
-- [x] create typography css for sizes
-- [x] cover UT for Context Provider Component
-- [x] create custom hook for using local storage
-- [x] use localStorage hook for storing theme preference
-
-### What's pending
-- [ ] remove flow from project
-- [ ] update the code with typescript
-
 ## Demo
 
 ### Todo App
