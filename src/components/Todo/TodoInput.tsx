@@ -16,7 +16,7 @@ const TodoInput = (): JSX.Element => {
     setChecked(!checked);
   };
 
-  const handleKeyDown = event => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter' && todoText) {
       onTodoAdd({ todoText, checked });
       setTodoText('');

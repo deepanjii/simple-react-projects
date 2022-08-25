@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import DashboardLayout from '../Dashboard';
 
-const Home = (): ReactNode => (
+const Home = (): JSX.Element => (
   <DashboardLayout>
     <div>Home Page</div>
   </DashboardLayout>
