@@ -4,7 +4,7 @@ import React from 'react';
 import Todo from '../Todo';
 import TodoProvider from '../TodoProvider';
 import TodoThemeProvider from '../TodoThemeProvider';
-import TodoUtils from '../TodoUtils';
+import { TodoUtils } from '../TodoUtils';
 
 describe('Todo Provider', () => {
   const setup = () => {

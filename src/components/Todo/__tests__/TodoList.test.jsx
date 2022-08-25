@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import TodoList from '../TodoList';
 import TodoProvider from '../TodoProvider';
-import TodoUtils from '../TodoUtils';
+import { TodoUtils } from '../TodoUtils';
 
 const todoList = [
   {
