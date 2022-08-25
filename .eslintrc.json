@@ -1,38 +1,51 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "jest": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "plugin:flowtype/recommended",
-        "airbnb"
+  "env": {
+      "browser": true,
+      "es2021": true,
+      "jest": true
+  },
+  "extends": [
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "airbnb",
+      "airbnb-typescript"
+  ],
+  "globals": {
+    "React": true,
+    "JSX": true
+},
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+      "project": "./tsconfig.json"
+  },
+  "plugins": [
+      "react",
+      "jest",
+      "@typescript-eslint"
+  ],
+  "rules": {
+    "arrow-parens": ["error", "as-needed"],
+    "comma-dangle": ["error", "never"],
+    "jsx-quotes": 0,
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
     ],
-    "parser": "@babel/eslint-parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "jest",
-        "flowtype"
-    ],
-    "rules": {
-      "arrow-parens": ["error", "as-needed"],
-      "comma-dangle": ["error", "never"],
-      "flowtype/no-types-missing-file-annotation": 0,
-      "jsx-quotes": 0,
-      "react/function-component-definition": [
-        2,
-        {
-          "namedComponents": "arrow-function"
-        }
-      ],
-      "react/jsx-props-no-spreading": 0
+    "react/jsx-props-no-spreading": 0,
+    "@typescript-eslint/comma-dangle": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
+  }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import TodoFooter from '../TodoFooter';
 import TodoProvider from '../TodoProvider';
-import TodoUtils from '../TodoUtils';
+import { TodoUtils } from '../TodoUtils';
 
 /* eslint-disable react/jsx-no-constructed-context-values */
 describe('TodoFooter', () => {
