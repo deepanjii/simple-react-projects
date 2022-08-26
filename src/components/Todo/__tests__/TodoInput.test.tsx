@@ -9,7 +9,7 @@ describe('TodoInput', () => {
         <TodoInput />
       </TodoProvider>
     );
-    const input = utils.getByLabelText('todo-input-element', { selector: 'input' });
+    const input = utils.getByLabelText('todo-input-element', { selector: 'input' }) as HTMLInputElement;
 
     return {
       input,
@@ -23,8 +23,8 @@ describe('TodoInput', () => {
   });
 
   test('has a placeholder', () => {
-    const { input: todoInput } = setup();
-    expect(todoInput.placeholder).toEqual('Create a new todo...');
+    const { input } = setup();
+    expect(input.placeholder).toEqual('Create a new todo...');
   });
 
   test('can take input value', () => {
@@ -35,7 +35,7 @@ describe('TodoInput', () => {
 
   test('should check the checkbox on click', () => {
     const { getByLabelText } = setup();
-    const checkbox = getByLabelText('custom-checkbox', { selector: 'input' });
+    const checkbox = getByLabelText('custom-checkbox', { selector: 'input' }) as HTMLInputElement;
     expect(checkbox.checked).toBe(false);
     fireEvent.click(checkbox);
     expect(checkbox.checked).toBe(true);
