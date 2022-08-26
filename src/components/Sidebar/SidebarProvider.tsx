@@ -1,4 +1,4 @@
-import React, {
+import {
   useMemo
 } from 'react';
 import { SidebarMenuContext } from '../../contexts/SidebarMenuContext';

@@ -1,4 +1,3 @@
-import React from 'react';
 import Achievements from './components/Achievements';
 import Home from './components/Home';
 import Projects from './components/Projects';

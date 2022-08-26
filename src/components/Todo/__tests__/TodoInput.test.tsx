@@ -1,4 +1,3 @@
-import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import TodoInput from '../TodoInput';
 import TodoProvider from '../TodoProvider';

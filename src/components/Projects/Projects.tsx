@@ -1,4 +1,3 @@
-import React from 'react';
 import DashboardLayout from '../Dashboard';
 import Project from './Project';
 import type { Projects as ProjectsType } from './types';

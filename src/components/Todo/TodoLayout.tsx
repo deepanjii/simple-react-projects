@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import type { ThemeContextValue } from './types';
 import useTheme from '../../hooks/useTheme';

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { memo } from 'react';
+import { memo } from 'react';
 import useSidebar from '../../hooks/useSidebar';
 import type { SidebarContextValue } from './types';
 

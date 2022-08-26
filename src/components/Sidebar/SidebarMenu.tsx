@@ -1,4 +1,3 @@
-import React from 'react';
 import type { SidebarContextValue } from './types';
 import SidebarMenuItem from './SidebarMenuItem';
 import useSidebar from '../../hooks/useSidebar';

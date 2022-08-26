@@ -1,4 +1,3 @@
-import React from 'react';
 import TodoFooter from './TodoFooter';
 import TodoHeader from './TodoHeader';
 import TodoInput from './TodoInput';

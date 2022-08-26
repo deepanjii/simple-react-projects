@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import React from 'react';
 import Todo from '../Todo';
 import TodoProvider from '../TodoProvider';
 import TodoThemeProvider from '../TodoThemeProvider';

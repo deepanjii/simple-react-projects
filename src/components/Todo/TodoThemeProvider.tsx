@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { ThemeContextValue, AppTheme } from './types';
 import { TodoThemeContext } from '../../contexts/TodoThemeContext';
 import { useLocalStorage } from '../../hooks/useLocalStorage';

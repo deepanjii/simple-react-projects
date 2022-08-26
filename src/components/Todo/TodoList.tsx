@@ -1,4 +1,3 @@
-import React from 'react';
 import type { TodoContextValue, Todo } from './types';
 import TodoListItem from './TodoListItem';
 import TodoListRow from './TodoListRow';

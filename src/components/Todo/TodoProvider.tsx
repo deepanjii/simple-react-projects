@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { useEffect, useReducer, useMemo } from 'react';
+import { useEffect, useReducer, useMemo } from 'react';
 import type {
   AddTodo as AddTodoType,
   Todo

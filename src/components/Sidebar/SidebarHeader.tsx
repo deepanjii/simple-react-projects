@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import ProfilePic from '../../assets/images/profile_pic.jpg';
 
 const SidebarHeader = memo((): JSX.Element => (
