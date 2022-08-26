@@ -1,4 +1,3 @@
-import React from 'react';
 import SidebarHeader from './SidebarHeader';
 import SidebarMenu from './SidebarMenu';
 

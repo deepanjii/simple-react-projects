@@ -1,4 +1,3 @@
-import React from 'react';
 import type { ThemeContextValue } from './types';
 import useTheme from '../../hooks/useTheme';
 

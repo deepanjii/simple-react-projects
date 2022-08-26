@@ -1,4 +1,3 @@
-import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import TodoListItem from '../TodoListItem';
 
@@ -9,7 +8,7 @@ const todo = {
 };
 
 describe('TodoListItem', () => {
-  const setup = extraProps => {
+  const setup = (extraProps = {}) => {
     const utils = render(
       <TodoListItem
         todo={todo}
@@ -18,7 +17,7 @@ describe('TodoListItem', () => {
         {...extraProps}
       />
     );
-    const todoItemCheckbox = utils.getByRole('checkbox');
+    const todoItemCheckbox = utils.getByRole('checkbox') as HTMLInputElement;
     const todoItemName = utils.getByText(/finish project 1/i);
     const todoItemDeleteBtn = utils.getByRole('button');
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import type { ProjectType } from './types';
 import ProjectLink from './ProjectLink';
 

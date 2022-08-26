@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import React from 'react';
 import useTodo from '../../hooks/useTodo';
 import { TodoContextValue } from './types';
 

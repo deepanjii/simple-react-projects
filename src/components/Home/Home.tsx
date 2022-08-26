@@ -1,4 +1,3 @@
-import React from 'react';
 import DashboardLayout from '../Dashboard';
 
 const Home = (): JSX.Element => (

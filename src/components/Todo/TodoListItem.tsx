@@ -1,4 +1,3 @@
-import React from 'react';
 import CustomCheckbox from './CustomCheckbox';
 import type { Todo } from './types';
 

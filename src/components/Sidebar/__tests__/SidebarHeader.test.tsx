@@ -1,4 +1,3 @@
-import React from 'react';
 import { render } from '@testing-library/react';
 import ProfilePic from '../../../assets/images/profile_pic.jpg';
 import SidebarProvider from '../SidebarProvider';
