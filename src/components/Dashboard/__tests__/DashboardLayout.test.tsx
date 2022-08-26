@@ -5,7 +5,12 @@ import DashboardLayout from '../DashboardLayout';
 
 describe('Dashboard', () => {
   test('renders without error', () => {
-    const { getByText } = render(<DashboardLayout />, { wrapper: MemoryRouter });
+    const { getByText } = render(
+      <DashboardLayout>
+        <span>Text</span>
+      </DashboardLayout>,
+      { wrapper: MemoryRouter }
+    );
     expect(getByText(/projects/i)).toBeTruthy();
   });
 });
