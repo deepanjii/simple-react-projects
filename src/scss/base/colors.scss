@@ -23,3 +23,14 @@ $color-dark-gray-4: hsl(233, 14%, 35%);
 $color-dark-gray-5: hsl(234, 11%, 52%);
 $color-dark-gray-6: hsl(234, 39%, 85%);
 $color-dark-gray-7: hsl(236, 33%, 92%);
+
+
+// sidebar icon colors
+$color-icon-home: #ff903a;
+$color-icon-home-bg: rgba($color: $color-icon-home, $alpha: 0.2);
+$color-icon-projects: #a088ed;
+$color-icon-projects-bg: rgba($color: $color-icon-projects, $alpha: 0.2);
+$color-icon-skills: #6acaf5;
+$color-icon-skills-bg: rgba($color: $color-icon-skills, $alpha: 0.2);
+$color-icon-achievements: #52d4b9;
+$color-icon-achievements-bg: rgba($color: $color-icon-achievements, $alpha: 0.2);

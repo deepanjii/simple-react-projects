@@ -41,4 +41,8 @@
   font-size: $font-size-22;
   font-weight: 100;
   margin-bottom: $ds-space-20;
+
+  &.projects {
+    color: $color-icon-projects;
+  }
 }

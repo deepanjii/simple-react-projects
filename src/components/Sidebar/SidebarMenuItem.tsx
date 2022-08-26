@@ -15,11 +15,11 @@ const SidebarMenuItem = memo(({ icon, name, slug }: SidebarMenuItemProps): JSX.E
 
   return (
     <Link
-      className={`sidebar__menu__item ${name === activeMenu ? 'active' : ''}`}
+      className={`sidebar__menu__item ${icon} ${name === activeMenu ? 'active' : ''}`}
       onClick={handleMenuClick}
       to={slug}
     >
-      <span className='material-symbols-rounded'>{icon}</span>
+      <span className={`material-symbols-rounded ${icon}`}>{icon}</span>
       <span>{name}</span>
     </Link>
   );
