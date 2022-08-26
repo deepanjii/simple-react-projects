@@ -38,7 +38,7 @@ const projects: ProjectsType = [
 
 const Projects = (): JSX.Element => (
   <DashboardLayout>
-    <h2 className='page-header'>Projects</h2>
+    <h2 className='page-header projects'>Projects</h2>
     <div className="projects">
       {
         projects.map(project => <Project key={project.title} project={project} />)

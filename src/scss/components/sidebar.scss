@@ -10,40 +10,115 @@
 
   .sidebar__header {
     display: flex;
-    gap: 10px;
+    gap: 16px;
     align-items: center;
-    padding: $ds-space-10 0;
+    padding-bottom: $ds-space-10;
     border-bottom: 1px solid $color-light-gray-4;
+    color: $color-dark-gray-3;
 
     .sidebar__header__image {
-      height: 40px;
-      width: 40px;
+      height: 50px;
+      width: 50px;
+      // border: 1.5px solid $color-dark-gray-6;
       border-radius: 50%;
+      border-left-color: transparent;
+      padding: 2px;
+    }
+
+    .sidebar__header__text {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
 
     .sidebar__header__title {
-      flex: 1;
-      font-size: $font-size-30;
+      font-size: $font-size-24;
       font-weight: 100;
+    }
+
+    .sidebar__header__subtitle {
+      flex: 1;
+      font-weight: 100;
+      font-size: $font-size-12;
     }
   }
 
   .sidebar__menu {
     flex: 1;
-    cursor: pointer;
 
     .sidebar__menu__item {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       gap: $ds-space-10;
       padding: $ds-space-10 $ds-space-18;
       border-radius: $ds-space-4;
       font-size: $font-size-18;
       text-decoration: none;
-      color: inherit;
-      
-      &.active, &:hover {
-        color: $color-bright-blue;
+      color: $color-dark-gray-4;
+      cursor: pointer;
+      overflow: hidden;
+
+      &:hover > span:first-of-type {
+        background-color: transparent;
+      }
+
+      &.active > span:first-of-type::before {
+        background-color: transparent;
+      }
+
+      .material-symbols-rounded {
+        padding: 4px;
+        border-radius: 50%;
+        position: relative;
+
+        &::before {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          height: 35px;
+          width: 35px;
+          border-radius: 50%;
+        }
+
+        &.home {
+          color: $color-icon-home;
+        }
+
+        &.widgets {
+          color: $color-icon-projects;
+        }
+
+        &.tips_and_updates {
+          color: $color-icon-skills;
+        }
+
+        &.workspace_premium {
+          color: $color-icon-achievements;
+        }
+      }
+
+      &:hover .material-symbols-rounded::before {
+        transform: scale(20);
+        transition: transform .3s ease-in;
+      }
+
+      &.home.active, .material-symbols-rounded.home::before {
+        background-color: $color-icon-home-bg;
+      }
+
+      &.widgets.active, .material-symbols-rounded.widgets::before {
+        background-color: $color-icon-projects-bg;
+      }
+
+      &.tips_and_updates.active, .material-symbols-rounded.tips_and_updates::before {
+        background-color: $color-icon-skills-bg;
+      }
+
+      &.workspace_premium.active, .material-symbols-rounded.workspace_premium::before {
+        background-color: $color-icon-achievements-bg;
       }
     }
   }
