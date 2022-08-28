@@ -8,9 +8,11 @@
 
 @import "themes/dark-theme";
 
+@import "components/common/badge";
 @import "components/dashboard";
 @import "components/projects";
 @import "components/sidebar";
+@import "components/skills";
 @import "components/todo";
 @import "components/todo-footer";
 @import "components/todo-checkbox";

@@ -1,0 +1,37 @@
+.skills-table {
+  display: inline-block;
+  width: 225px;
+  border: 1px solid $color-light-gray-3;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 10px $color-light-gray-2;
+  font-weight: 300;
+
+  .skills-table__heading, .skills-table__item {
+    padding: 8px 12px;
+  }
+
+  .skills-table__heading {
+    border-bottom: 1px solid $color-light-gray-3;
+  }
+
+  .skills-table__heading {
+    font-weight: 500;
+    font-size: $font-size-12;
+    background-color: $color-bright-blue;
+    color: $color-white-100;
+  }
+
+  .skills-table__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $ds-space-10;
+    font-weight: 400;
+
+    .material-symbols-rounded {
+      font-size: $font-size-18;
+      color: lighten(orange, 10%);
+    }
+  }
+}

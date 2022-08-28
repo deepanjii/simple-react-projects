@@ -20,7 +20,7 @@ const SidebarMenuItem = memo(({ icon, name, slug }: SidebarMenuItemProps): JSX.E
       to={slug}
     >
       <span className={`material-symbols-rounded ${icon}`}>{icon}</span>
-      <span>{name}</span>
+      <span className='sidebar__menu__item__name'>{name}</span>
     </Link>
   );
 });

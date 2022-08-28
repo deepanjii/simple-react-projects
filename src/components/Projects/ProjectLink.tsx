@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
 
 interface Props {
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element | JSX.Element[] | string;
   isExternal?: boolean;
   url: string;
 }
 
 const ProjectLink = ({ children, isExternal, url }: Props): JSX.Element => (
   isExternal ? (
-    <a className='project-card' rel='noreferrer' target='_blank' href={url}>{children}</a>
+    <a className='project-link' rel='noreferrer' target='_blank' href={url}>{children}</a>
   ) : (
-    <Link className='project-card' to={url}>
+    <Link className='project-link' to={url}>
       {children}
     </Link>
   )

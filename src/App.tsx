@@ -1,8 +1,4 @@
-import Achievements from './components/Achievements';
-import Home from './components/Home';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Todo from './components/Todo';
+import { Achievements, Home, Projects, Skills, Todo } from './components';
 import { Route, Routes } from 'react-router-dom';
 import './css/style.css';
 

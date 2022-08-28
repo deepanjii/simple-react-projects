@@ -2,7 +2,7 @@ import DashboardLayout from '../Dashboard';
 
 const Home = (): JSX.Element => (
   <DashboardLayout>
-    <div>Home Page</div>
+    <h2 className='page-header'>Home Page</h2>
   </DashboardLayout>
 );
 

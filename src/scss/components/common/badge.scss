@@ -1,0 +1,34 @@
+.badge {
+  display: inline;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+.badge--html {
+  background-color: #F06529;
+}
+
+.badge--scss {
+  background-color: #CD6799;
+}
+
+.badge--react {
+  background-color: #61DBFB;
+}
+
+.badge--ts {
+  background-color: #007acc;
+}
+
+.badge--webpack {
+  background: linear-gradient(to right, #8ED5FA 50%, #1C78C0 50%);
+}
+
+.badge--jest {
+  background-color: #C63D14;
+}
+
+.badge--rtl {
+  background-color: #e23233;
+}

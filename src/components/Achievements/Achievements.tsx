@@ -2,7 +2,7 @@ import DashboardLayout from '../Dashboard';
 
 const Achievements = (): JSX.Element => (
   <DashboardLayout>
-    <div>Achievements Page</div>
+    <h2 className='page-header'>Achievements Page</h2>
   </DashboardLayout>
 );
 

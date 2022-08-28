@@ -19,7 +19,6 @@
     .sidebar__header__image {
       height: 50px;
       width: 50px;
-      // border: 1.5px solid $color-dark-gray-6;
       border-radius: 50%;
       border-left-color: transparent;
       padding: 2px;
@@ -33,36 +32,61 @@
 
     .sidebar__header__title {
       font-size: $font-size-24;
-      font-weight: 100;
+      font-weight: 500;
     }
 
     .sidebar__header__subtitle {
       flex: 1;
-      font-weight: 100;
+      font-weight: 300;
       font-size: $font-size-12;
     }
   }
 
   .sidebar__menu {
     flex: 1;
+    font-size: $font-size-14;
 
     .sidebar__menu__item {
       display: flex;
       align-items: center;
       gap: $ds-space-10;
-      padding: $ds-space-10 $ds-space-18;
+      padding: $ds-space-8 $ds-space-16;
       border-radius: $ds-space-4;
-      font-size: $font-size-18;
-      text-decoration: none;
       color: $color-dark-gray-4;
+      text-decoration: none;
+      font-weight: 300;
       cursor: pointer;
       overflow: hidden;
+      
+      &.active.home, .home {
+        color: $color-icon-home;
+      }
 
-      &:hover > span:first-of-type {
+      &.active.widgets, .widgets {
+        color: $color-icon-projects;
+      }
+
+      &.active.tips_and_updates, .tips_and_updates {
+        color: $color-icon-skills;
+      }
+
+      &.active.workspace_premium, .workspace_premium {
+        color: $color-icon-achievements;
+      }
+
+      &.active {
+        font-weight: 500;
+      }
+
+      &.active > .material-symbols-rounded {
+        font-weight: 900;
+      }
+
+      &:hover > .material-symbols-rounded {
         background-color: transparent;
       }
 
-      &.active > span:first-of-type::before {
+      &.active > .material-symbols-rounded::before {
         background-color: transparent;
       }
 
@@ -70,6 +94,7 @@
         padding: 4px;
         border-radius: 50%;
         position: relative;
+        font-size: $font-size-18;
 
         &::before {
           content: '';
@@ -78,31 +103,19 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          height: 35px;
-          width: 35px;
+          height: 28px;
+          width: 28px;
           border-radius: 50%;
-        }
-
-        &.home {
-          color: $color-icon-home;
-        }
-
-        &.widgets {
-          color: $color-icon-projects;
-        }
-
-        &.tips_and_updates {
-          color: $color-icon-skills;
-        }
-
-        &.workspace_premium {
-          color: $color-icon-achievements;
         }
       }
 
       &:hover .material-symbols-rounded::before {
         transform: scale(20);
         transition: transform .3s ease-in;
+      }
+
+      &.active .material-symbols-rounded::before {
+        display: none;
       }
 
       &.home.active, .material-symbols-rounded.home::before {
